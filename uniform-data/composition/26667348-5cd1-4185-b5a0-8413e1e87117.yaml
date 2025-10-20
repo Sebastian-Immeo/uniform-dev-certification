@@ -1,0 +1,13 @@
+composition:
+  _name: Home
+  _id: 26667348-5cd1-4185-b5a0-8413e1e87117
+  _slug: /
+  type: page
+  parameters:
+    metaTitle:
+      type: text
+      value: Home
+  _dataResources: {}
+created: '2025-05-28T10:41:04.84648+00:00'
+modified: '2025-06-10T11:06:57.359763+00:00'
+pattern: false

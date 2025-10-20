@@ -1,0 +1,37 @@
+created: '2025-06-10T10:59:26.884419+00:00'
+modified: '2025-06-10T11:00:12.024963+00:00'
+pattern: false
+entry:
+  _id: 099755f1-1dac-486a-ba46-b60c683e8c7b
+  _name: Sustainability
+  _slug: sustainability
+  type: category
+  fields:
+    title:
+      type: text
+      value: Sustainability
+    description:
+      type: richText
+      value:
+        root:
+          type: root
+          format: ''
+          indent: 0
+          version: 1
+          children:
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: On sustainablity
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+          direction: ltr

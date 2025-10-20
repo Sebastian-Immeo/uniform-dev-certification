@@ -1,0 +1,51 @@
+id: authors
+displayName: Authors
+ttl: 30
+path: /data/query/${dataset}
+custom:
+  imageField: image
+  displayField: name
+  proposedName: Documents Query
+  projectionQuery: '{..., "image": image.asset->}'
+  allowedContentTypes:
+    - author
+method: GET
+purgeKey: 1a828912-8c35-431a-9c66-d5438508f416
+archetype: documentsQuery
+variables:
+  count:
+    type: text
+    default: '5'
+    displayName: Count
+  offset:
+    type: text
+    default: '0'
+    displayName: Offset
+  sortBy:
+    type: text
+    default: _id
+    displayName: Sort By
+  filters:
+    type: text
+    default: 'true'
+    displayName: Filter
+  keyword:
+    type: text
+    default: '*'
+    displayName: Keyword
+  sortOrder:
+    type: text
+    default: asc
+    displayName: Sorting
+  contentType:
+    type: text
+    default: ''
+    displayName: Content Type
+parameters:
+  - key: query
+    value: >-
+      *[!(_id in path("drafts.**")) && _type=="${contentType}" && ${filters}] |
+      order(${sortBy} ${sortOrder})[${offset}...(${offset}+${count})] | {...,
+      "image": image.asset->}
+dataSourceId: sanity
+allowedOnComponents: []

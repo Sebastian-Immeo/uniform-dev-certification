@@ -1,0 +1,78 @@
+composition:
+  _name: Card pattern
+  _id: 9c6044f5-4c35-4196-a30f-308f11d539fa
+  type: customCard
+  parameters:
+    url:
+      type: link
+      value:
+        path: ${#jptr:/Blog Content/entry/_slug}
+        type: url
+      conditions:
+        - when:
+            clauses:
+              - op: has
+                rule: $dt
+                value: penguin
+                source: ${#jptr:/blogs Query Content/result/1/slug/current}
+          value:
+            path: /about
+            type: projectMapNode
+            nodeId: 43ffcc82-3dc3-4802-ae0f-c587ef39e21e
+            projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
+          id: 0
+    slug:
+      type: text
+      value: ${#jptr:/blogs Query Content/result/0/slug/current}
+    title:
+      type: text
+      value: ${#jptr:/blogs Query Content/result/0/title}
+    background:
+      type: asset
+      value:
+        - _id: 97e8ba57-fdbf-4872-8b6e-4f634ddc11aa
+          type: image
+          fields:
+            url:
+              type: text
+              value: >-
+                ${#jptr:/Blog
+                Content/entry/fields/mainImage/value/0/fields/url/value}
+          _source: custom-url
+    buttonText:
+      type: text
+      value: Editable text!
+  _dataResources:
+    Blog Content:
+      type: blog
+      variables:
+        entryId: 5346ab3d-4674-4111-8aa2-184b0f7dc408
+      isPatternParameter: true
+      ignorePatternParameterDefault: false
+    Blogs Content:
+      type: blogList
+      variables:
+        search: ''
+        filters: '{"type[eq]":"blog"}'
+        contentTypes: blog
+      isPatternParameter: true
+      ignorePatternParameterDefault: false
+    blogs Query Content:
+      type: blogsQuery
+      variables:
+        contentType: post
+      isPatternParameter: true
+      ignorePatternParameterDefault: true
+  _overridability:
+    variants: true
+    parameters:
+      url: 'yes'
+      $viz: 'yes'
+      slug: 'yes'
+      title: 'yes'
+      background: 'yes'
+      buttonText: 'yes'
+    hideLockedParameters: true
+created: '2025-06-10T13:15:58.835165+00:00'
+modified: '2025-06-13T20:45:10.914859+00:00'
+pattern: true

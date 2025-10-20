@@ -1,0 +1,10 @@
+id: a6b3ae50-a34d-48d9-a1ac-d0d2ab30b0db
+name: article-detail
+order: 500
+path: /articles/:article-detail
+type: composition
+pathSegment: ':article-detail'
+data:
+  previewValue: blog
+compositionId: 945dcc53-acb6-4ae5-ada8-72c061fadbe8
+projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb

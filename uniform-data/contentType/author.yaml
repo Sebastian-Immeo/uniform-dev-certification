@@ -1,0 +1,89 @@
+id: author
+name: Author
+created: '2025-05-30T18:53:51.694165+00:00'
+updated: '2025-06-03T14:05:11.091835+00:00'
+slugSettings: {}
+useTeamPermissions: true
+fields:
+  - id: name
+    name: Name
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: about
+    name: About
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: bio
+    name: Bio
+    type: richText
+    typeConfig:
+      elements:
+        builtIn:
+          - h1
+          - h2
+          - h3
+          - h4
+          - h5
+          - h6
+          - unorderedList
+          - orderedList
+          - link
+          - quote
+          - code
+          - table
+          - asset
+          - variable
+      required: false
+      formatting:
+        builtIn:
+          - bold
+          - italic
+          - underline
+          - strikethrough
+          - code
+          - superscript
+          - subscript
+      elementsConfig:
+        asset:
+          allowedTypes:
+            - image
+    localizable: true
+  - id: thumbnail
+    name: thumbnail
+    type: asset
+    typeConfig:
+      allowedTypes:
+        - image
+    localizable: true
+  - id: eeb77488-fcaf-4c2c-b722-f75077a6db77
+    name: Meta
+    type: group
+    typeConfig:
+      collapsed: true
+      childrenParams:
+        - collaborators
+        - preferedCurrency
+  - id: collaborators
+    name: Collaborators
+    type: contentReference
+    typeConfig:
+      isMulti: true
+      allowedContentTypes:
+        - author
+  - id: preferedCurrency
+    name: Prefered Currency
+    type: $block
+    typeConfig:
+      required: false
+      allowedTypes:
+        - currency
+        - $loop
+entryName: name
+thumbnailField: thumbnail
+description: ''
+icon: pen
+type: contentType
+permissions: []
+previewConfigurations: []

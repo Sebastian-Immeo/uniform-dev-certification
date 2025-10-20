@@ -1,0 +1,9 @@
+id: d247e7cf-aa16-42f7-9e1e-d8d28bfa5ece
+name: Articles
+order: 300
+path: /articles
+type: composition
+pathSegment: articles
+data: {}
+compositionId: da39198a-c039-446e-8c75-eeefefcc08cf
+projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb

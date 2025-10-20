@@ -1,0 +1,123 @@
+composition:
+  _name: Articles
+  _id: da39198a-c039-446e-8c75-eeefefcc08cf
+  _slug: blogs
+  type: page
+  slots:
+    content:
+      - _id: bb251c74-efdb-4689-9f30-0f63c641abf9
+        type: grid
+        slots:
+          gridItems:
+            - _id: 91f487e2-0e65-45eb-aa4e-617ee99ca5f8
+              type: $loop
+              slots:
+                body:
+                  - _id: d53f0754-940a-42db-9659-eb4a5edc95a8
+                    type: customCard
+                    _pattern: 9c6044f5-4c35-4196-a30f-308f11d539fa
+              _dataResources:
+                blogs Query Content result Loop Item:
+                  type: sys-reserved-loop
+                  variables:
+                    connectedData: '#jptr:/Blog List Content/entries:fa=c'
+            - _id: 1db5176a-d1b4-46a9-8e74-0fda3d3780c2
+              type: $loop
+              slots:
+                body:
+                  - _id: ed9942ff-c7b4-422a-bb49-2cc0ca6e4c6c
+                    type: customCard
+                    _pattern: 9c6044f5-4c35-4196-a30f-308f11d539fa
+              _dataResources:
+                blogs Query Content result Loop Item:
+                  type: sys-reserved-loop
+                  variables:
+                    connectedData: '#jptr:/blogs Query Content/result:fa=c'
+  _dataResources:
+    Blogs Content:
+      type: blogList
+      variables:
+        search: ''
+        filters: '{"type[eq]":"blog"}'
+        contentTypes: blog
+    Blog List Content:
+      type: blogList
+      variables:
+        search: ''
+        filters: '{"type[eq]":"blog"}'
+        contentTypes: blog
+    blogs Query Content:
+      type: blogsQuery
+      variables:
+        contentType: post
+  _overrides:
+    d53f0754-940a-42db-9659-eb4a5edc95a8:
+      parameters:
+        url:
+          type: link
+          value:
+            path: >-
+              /articles/${#jptr:/blogs Query Content result Loop
+              Item/entry/_slug}
+            type: projectMapNode
+            nodeId: a6b3ae50-a34d-48d9-a1ac-d0d2ab30b0db
+            projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
+            dynamicInputValues:
+              article-detail: ${#jptr:/blogs Query Content result Loop Item/entry/_slug}
+          conditions:
+            - when:
+                clauses:
+                  - op: has
+                    rule: $dt
+                    value: penguin
+                    source: ${#jptr:/blogs Query Content/result/1/slug/current}
+              value:
+                path: /about
+                type: projectMapNode
+                nodeId: 43ffcc82-3dc3-4802-ae0f-c587ef39e21e
+                projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
+              id: 0
+        title:
+          type: text
+          value: >-
+            ${#jptr:/blogs Query Content result Loop
+            Item/entry/fields/title/value}
+        background:
+          type: asset
+          value: >-
+            ${#jptr:/blogs Query Content result Loop
+            Item/entry/fields/mainImage/value}
+        buttonText:
+          type: text
+          value: Read the full article
+      dataResources:
+        blogs Query Content:
+          type: blogsQuery
+          variables:
+            contentType: post
+    ed9942ff-c7b4-422a-bb49-2cc0ca6e4c6c:
+      parameters:
+        title:
+          type: text
+          value: ${#jptr:/blogs Query Content result Loop Item/title}
+        background:
+          type: asset
+          value:
+            - _id: 97e8ba57-fdbf-4872-8b6e-4f634ddc11aa
+              type: image
+              fields:
+                url:
+                  type: text
+                  value: ${#jptr:/blogs Query Content result Loop Item/mainImage/url}
+              _source: custom-url
+        buttonText:
+          type: text
+          value: Read Article Summary
+      dataResources:
+        blogs Query Content:
+          type: blogsQuery
+          variables:
+            contentType: post
+created: '2025-06-02T11:12:52.907347+00:00'
+modified: '2025-06-13T20:46:31.508568+00:00'
+pattern: false

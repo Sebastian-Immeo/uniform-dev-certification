@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://uniform.app/schemas/json-schema/component-definition/v1.json
+id: grid
+name: Grid
+icon: menu-grid-o
+parameters: []
+useTeamPermissions: true
+slots:
+  - id: gridItems
+    name: Grid Items
+    minComponents: 1
+    allowedComponents: []
+    allowAllComponents: false
+    inheritAllowedComponents: true
+    patternsInAllowedComponents: false
+canBeComposition: false
+created: '2025-06-10T13:39:30.589517+00:00'
+updated: '2025-06-10T13:39:30.589517+00:00'

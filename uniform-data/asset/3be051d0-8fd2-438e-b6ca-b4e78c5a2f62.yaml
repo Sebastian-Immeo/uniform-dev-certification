@@ -1,0 +1,30 @@
+asset:
+  type: image
+  _id: 3be051d0-8fd2-438e-b6ca-b4e78c5a2f62
+  _name: ''
+  fields:
+    title:
+      type: text
+      value: Antartica.jpg
+    file:
+      type: file
+      value: c7d40644-9147-4316-a679-632dd3efe6be
+    mediaType:
+      value: image/jpeg
+      type: text
+    url:
+      value: >-
+        https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/zJl41eb2Que7rc_1NadXAQ-Antartica.jpg
+      type: text
+    size:
+      value: 6021
+      type: number
+    width:
+      value: 275
+      type: number
+    height:
+      value: 183
+      type: number
+    custom: {}
+created: '2025-06-10T10:58:57.70644+00:00'
+modified: '2025-06-10T10:58:57.70644+00:00'

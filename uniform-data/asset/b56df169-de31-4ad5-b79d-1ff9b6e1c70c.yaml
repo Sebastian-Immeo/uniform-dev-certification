@@ -1,0 +1,30 @@
+asset:
+  type: image
+  _id: b56df169-de31-4ad5-b79d-1ff9b6e1c70c
+  _name: ''
+  fields:
+    title:
+      type: text
+      value: Skaermbillede-2025-05-26-141819.png
+    file:
+      type: file
+      value: 7513e01c-4698-45d7-a23e-3968e541779c
+    mediaType:
+      value: image/png
+      type: text
+    url:
+      value: >-
+        https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/zZ0h-sjQTRKuUsGWsdF_dQ-Skaermbillede-2025-05-26-141819.png
+      type: text
+    size:
+      value: 758105
+      type: number
+    width:
+      value: 1852
+      type: number
+    height:
+      value: 977
+      type: number
+    custom: {}
+created: '2025-05-28T12:40:57.338809+00:00'
+modified: '2025-05-28T12:40:57.338809+00:00'

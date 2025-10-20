@@ -1,0 +1,30 @@
+asset:
+  type: image
+  _id: efa87737-3357-49a8-a23a-14bfbf314399
+  _name: ''
+  fields:
+    title:
+      type: text
+      value: Author-1.jpg
+    file:
+      type: file
+      value: 3b1b4651-8910-4657-9026-8ba600b41c26
+    mediaType:
+      value: image/jpeg
+      type: text
+    url:
+      value: >-
+        https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/JE0pLnlcQx-pXM_nNofG1Q-Author-1.jpg
+      type: text
+    size:
+      value: 48669
+      type: number
+    width:
+      value: 612
+      type: number
+    height:
+      value: 408
+      type: number
+    custom: {}
+created: '2025-06-10T10:18:14.14482+00:00'
+modified: '2025-06-10T10:18:14.14482+00:00'

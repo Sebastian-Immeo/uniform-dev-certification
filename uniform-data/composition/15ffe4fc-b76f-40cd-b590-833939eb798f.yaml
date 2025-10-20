@@ -1,0 +1,8 @@
+composition:
+  _name: Sub site
+  _id: 15ffe4fc-b76f-40cd-b590-833939eb798f
+  _slug: sub-site
+  type: page
+created: '2025-06-16T07:51:37.249992+00:00'
+modified: '2025-06-16T07:51:52.462965+00:00'
+pattern: false

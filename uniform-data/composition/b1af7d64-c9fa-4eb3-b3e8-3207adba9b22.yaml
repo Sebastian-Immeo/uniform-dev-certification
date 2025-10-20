@@ -1,0 +1,8 @@
+composition:
+  _name: Articles
+  _id: b1af7d64-c9fa-4eb3-b3e8-3207adba9b22
+  _slug: articles
+  type: articlePage
+created: '2025-05-30T18:32:03.52556+00:00'
+modified: '2025-06-02T10:16:57.372013+00:00'
+pattern: false

@@ -1,0 +1,9 @@
+composition:
+  _name: article-detail
+  _id: e1e9e8ca-d58f-45ce-a146-ffbf5164d589
+  _slug: article-detail
+  type: articlePage
+  parameters: {}
+created: '2025-06-02T10:17:50.940376+00:00'
+modified: '2025-06-02T10:17:50.940376+00:00'
+pattern: false

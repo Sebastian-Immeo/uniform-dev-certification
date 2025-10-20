@@ -1,0 +1,10 @@
+composition:
+  _name: Page pattern
+  _id: ee5645a5-67df-415a-808d-53abf6e5916a
+  type: page
+  parameters: {}
+  _overridability:
+    hideLockedParameters: true
+created: '2025-06-02T11:31:24.5344+00:00'
+modified: '2025-06-02T11:31:24.5344+00:00'
+pattern: true

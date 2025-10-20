@@ -1,0 +1,51 @@
+id: blogsQuery
+displayName: blogs Query
+ttl: 30
+path: /data/query/${dataset}
+custom:
+  imageField: mainImage
+  displayField: title
+  proposedName: Documents Query
+  projectionQuery: '{..., "mainImage": mainImage.asset->}'
+  allowedContentTypes:
+    - post
+method: GET
+purgeKey: 3ed859d3-abf6-4c88-8474-48b02eca8786
+archetype: documentsQuery
+variables:
+  count:
+    type: text
+    default: '5'
+    displayName: Count
+  offset:
+    type: text
+    default: '0'
+    displayName: Offset
+  sortBy:
+    type: text
+    default: _id
+    displayName: Sort By
+  filters:
+    type: text
+    default: 'true'
+    displayName: Filter
+  keyword:
+    type: text
+    default: '*'
+    displayName: Keyword
+  sortOrder:
+    type: text
+    default: asc
+    displayName: Sorting
+  contentType:
+    type: text
+    default: ''
+    displayName: Content Type
+parameters:
+  - key: query
+    value: >-
+      *[!(_id in path("drafts.**")) && _type=="${contentType}" && ${filters}] |
+      order(${sortBy} ${sortOrder})[${offset}...(${offset}+${count})] | {...,
+      "mainImage": mainImage.asset->}
+dataSourceId: sanity
+allowedOnComponents: []

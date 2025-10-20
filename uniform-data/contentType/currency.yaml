@@ -1,0 +1,30 @@
+id: currency
+name: Currency
+created: '2025-06-03T14:01:13.604576+00:00'
+updated: '2025-06-03T14:01:13.604576+00:00'
+slugSettings: {}
+useTeamPermissions: true
+fields:
+  - id: name
+    name: Name
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: code
+    name: Code
+    type: select
+    typeConfig:
+      options:
+        - text: DK
+          value: DK
+        - text: USD
+          value: USD
+        - text: EUR
+          value: EUR
+      required: true
+entryName: name
+description: Place for your currencies
+icon: card-diamonds
+type: block
+permissions: []
+previewConfigurations: []

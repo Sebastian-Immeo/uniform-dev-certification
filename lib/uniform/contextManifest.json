@@ -1,0 +1,138 @@
+{
+  "project": {
+    "pz": {
+      "agg": {
+        "firstVisitor": {
+          "inputs": [
+            {
+              "dim": "firstvisit"
+            }
+          ]
+        },
+        "superUser": {
+          "inputs": [
+            {
+              "dim": "engagement"
+            }
+          ]
+        },
+        "superReader": {
+          "inputs": [
+            {
+              "dim": "superUser"
+            }
+          ]
+        }
+      },
+      "enr": {
+        "1": {
+          "cap": 10000
+        },
+        "2": {
+          "cap": 4
+        }
+      },
+      "sig": {
+        "engagement": {
+          "str": 1,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "CK",
+                "match": {
+                  "op": "*"
+                },
+                "cookieName": "articlesRead"
+              }
+            ]
+          }
+        },
+        "articleRead": {
+          "str": 1,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "PVC",
+                "match": {
+                  "op": "=",
+                  "rhs": 1
+                }
+              }
+            ]
+          }
+        },
+        "test": {
+          "str": 50,
+          "cap": 100,
+          "dur": "t",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "1"
+                },
+                "queryName": "firstVisit"
+              }
+            ]
+          }
+        },
+        "launchCampaign": {
+          "str": 50,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "launch"
+                },
+                "queryName": "utm_campaign"
+              }
+            ]
+          }
+        },
+        "firstvisit": {
+          "str": 1,
+          "cap": 1,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "key": "firstVisit",
+                "type": "QK",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "0"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "test": {
+      "isItTheFirstPage": {}
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif"; /* Download font */
+  --color-primary: #0d9488;
+  --color-platinum: #ffffff;
+  --color-rhodium: #f3f3f3;
+  --color-palladium: #d0d2d4;
+  --color-titanium: #989ca0;
+  --color-graphite: #4f555b;
+  --color-magnesium: #343c44;
+  --color-carbon: #0f1923;
+}

@@ -1,0 +1,86 @@
+created: '2025-05-30T18:54:00.466638+00:00'
+modified: '2025-06-10T10:18:21.373177+00:00'
+pattern: false
+entry:
+  _id: 5d03b76c-191c-47e3-add1-9f4bfa71ed36
+  _name: Frank Dust
+  _slug: sebastian
+  _thumbnail: >-
+    https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/JE0pLnlcQx-pXM_nNofG1Q-Author-1.jpg
+  type: author
+  fields:
+    bio:
+      type: richText
+      value:
+        root:
+          type: root
+          format: ''
+          indent: 0
+          version: 1
+          children:
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: New journalist on the team
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+          direction: ltr
+    name:
+      type: text
+      value: Frank Dust
+    about:
+      type: text
+      value: Journalist
+    thumbnail:
+      type: asset
+      value:
+        - _id: 5db6ce29-b956-442d-aa4a-8c4572d148fd
+          type: image
+          fields:
+            id:
+              type: text
+              value: efa87737-3357-49a8-a23a-14bfbf314399
+            url:
+              value: >-
+                https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/JE0pLnlcQx-pXM_nNofG1Q-Author-1.jpg
+              type: text
+            file:
+              type: file
+              value: 3b1b4651-8910-4657-9026-8ba600b41c26
+            size:
+              value: 48669
+              type: number
+            title:
+              type: text
+              value: Author-1.jpg
+            width:
+              value: 612
+              type: number
+            height:
+              value: 408
+              type: number
+            mediaType:
+              value: image/jpeg
+              type: text
+          _source: uniform-assets
+    preferedCurrency:
+      type: $block
+      value:
+        - _id: deb62968-97fb-43d3-8289-ad75e30ccad7
+          type: currency
+          fields:
+            code:
+              type: select
+              value: DK
+            name:
+              type: text
+              value: My favourite

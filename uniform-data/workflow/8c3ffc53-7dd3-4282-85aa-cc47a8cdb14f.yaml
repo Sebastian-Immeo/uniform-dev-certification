@@ -1,0 +1,43 @@
+id: 8c3ffc53-7dd3-4282-85aa-cc47a8cdb14f
+name: Pardot Form
+initialStage: 639aa421-914d-4060-b511-9d2e91ef3ef1
+stages:
+  639aa421-914d-4060-b511-9d2e91ef3ef1:
+    name: Form Creation
+    permissions:
+      editor:
+        write: true
+    transitions:
+      - name: Submit for approval
+        to: 68b2ca56-e6e3-4f28-a10e-2987234ebb0c
+        permissions: {}
+    icon: pen
+    order: 0
+  68b2ca56-e6e3-4f28-a10e-2987234ebb0c:
+    name: Pardot Approval
+    requireValidity: true
+    permissions:
+      pardotReviewer: {}
+    transitions:
+      - name: Reject
+        to: 639aa421-914d-4060-b511-9d2e91ef3ef1
+        permissions: {}
+      - name: Approve
+        to: fb13b366-adac-4d3b-9fd6-38ef16d1edc1
+        permissions: {}
+    icon: flag
+    order: 1
+  fb13b366-adac-4d3b-9fd6-38ef16d1edc1:
+    name: Publish
+    autoPublish: true
+    permissions:
+      editor:
+        publish: true
+    transitions:
+      - name: Published
+        to: 639aa421-914d-4060-b511-9d2e91ef3ef1
+        permissions:
+          developer:
+            execute: true
+    icon: lock
+    order: 2

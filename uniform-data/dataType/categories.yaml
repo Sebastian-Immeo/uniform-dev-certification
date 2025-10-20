@@ -1,0 +1,49 @@
+id: categories
+displayName: Categories
+ttl: 30
+path: /data/query/${dataset}
+custom:
+  displayField: title
+  proposedName: Documents Query
+  projectionQuery: ''
+  allowedContentTypes:
+    - category
+method: GET
+purgeKey: 7a4e2ac9-a945-485c-9cd1-ee0577162c79
+archetype: documentsQuery
+variables:
+  count:
+    type: text
+    default: '5'
+    displayName: Count
+  offset:
+    type: text
+    default: '0'
+    displayName: Offset
+  sortBy:
+    type: text
+    default: _id
+    displayName: Sort By
+  filters:
+    type: text
+    default: 'true'
+    displayName: Filter
+  keyword:
+    type: text
+    default: '*'
+    displayName: Keyword
+  sortOrder:
+    type: text
+    default: asc
+    displayName: Sorting
+  contentType:
+    type: text
+    default: ''
+    displayName: Content Type
+parameters:
+  - key: query
+    value: >-
+      *[!(_id in path("drafts.**")) && _type=="${contentType}" && ${filters}] |
+      order(${sortBy} ${sortOrder})[${offset}...(${offset}+${count})] | {...}
+dataSourceId: sanity
+allowedOnComponents: []

@@ -1,0 +1,12 @@
+id: 4c8bcc0a-04aa-4dea-bae9-c48d4d181d49
+sourceUrl: /immeo.dk
+sourceRetainQuerystring: true
+targetUrl: https://uniform-hello-world.vercel.app/sub-site
+targetStatusCode: 301
+targetProjectMapNodeId: d1a22f00-1f4f-4039-8365-fab81d9991ad
+projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
+sourceMustMatchDomain: false
+targetPreserveIncomingProtocol: false
+targetPreserveIncomingDomain: false
+targetMergeQuerystring: true
+labelAsSystem: false

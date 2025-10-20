@@ -1,0 +1,29 @@
+id: blogList
+displayName: Blogs
+ttl: 30
+body: ''
+path: /query
+custom:
+  allowedContentTypes:
+    - blog
+method: GET
+purgeKey: 06fa63f3-e3cf-41b7-9b32-cb8b07cad05e
+archetype: queryEntries
+variables:
+  limit:
+    type: text
+    default: '20'
+  offset:
+    type: text
+    default: '0'
+  filters:
+    type: text
+    default: '{}'
+  orderBy:
+    type: text
+    default: ''
+  contentTypes:
+    type: text
+    default: ''
+dataSourceId: uniformContent
+allowedOnComponents: []

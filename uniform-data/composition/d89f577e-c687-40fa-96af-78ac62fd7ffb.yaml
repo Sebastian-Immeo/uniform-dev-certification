@@ -1,0 +1,12 @@
+composition:
+  _name: About
+  _id: d89f577e-c687-40fa-96af-78ac62fd7ffb
+  _slug: about
+  type: page
+  parameters:
+    metaTitle:
+      type: text
+      value: About Us
+created: '2025-05-28T10:41:04.846321+00:00'
+modified: '2025-06-10T10:16:16.62683+00:00'
+pattern: false

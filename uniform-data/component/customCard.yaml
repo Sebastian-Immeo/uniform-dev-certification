@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://uniform.app/schemas/json-schema/component-definition/v1.json
+id: customCard
+name: Card
+icon: rectangle-rounded
+parameters:
+  - id: title
+    name: Title
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: background
+    name: Background
+    type: asset
+    typeConfig:
+      allowedTypes:
+        - image
+    localizable: true
+  - id: buttonText
+    name: Button Text
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: url
+    name: url
+    type: link
+    typeConfig:
+      required: false
+      linkTypes:
+        tel: false
+        email: false
+    allowConditionalValues: true
+  - id: slug
+    name: Slug
+    type: text
+    typeConfig:
+      required: false
+    localizable: true
+    allowConditionalValues: true
+useTeamPermissions: true
+slots: []
+titleParameter: title
+thumbnailParameter: background
+canBeComposition: false
+created: '2025-05-28T11:50:32.363194+00:00'
+updated: '2025-06-10T13:34:00.583201+00:00'

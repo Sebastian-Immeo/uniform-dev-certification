@@ -1,0 +1,75 @@
+id: blog
+name: Blog
+created: '2025-05-30T18:57:26.336059+00:00'
+updated: '2025-06-10T10:50:49.599212+00:00'
+slugSettings: {}
+useTeamPermissions: true
+fields:
+  - id: title
+    name: Title
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: content
+    name: content
+    type: richText
+    typeConfig:
+      elements:
+        builtIn:
+          - h1
+          - h2
+          - h3
+          - h4
+          - h5
+          - h6
+          - unorderedList
+          - orderedList
+          - link
+          - quote
+          - code
+          - table
+          - asset
+          - variable
+      required: false
+      formatting:
+        builtIn:
+          - bold
+          - italic
+          - underline
+          - strikethrough
+          - code
+          - superscript
+          - subscript
+      elementsConfig:
+        asset:
+          allowedTypes:
+            - image
+    localizable: true
+  - id: author
+    name: Author
+    type: contentReference
+    typeConfig:
+      required: true
+  - id: mainImage
+    name: Main Image
+    type: asset
+    typeConfig:
+      allowedTypes:
+        - image
+    localizable: true
+  - id: tags
+    name: Tags
+    type: contentReference
+    typeConfig:
+      min: 1
+      isMulti: true
+      allowedContentTypes:
+        - category
+entryName: title
+thumbnailField: mainImage
+description: ''
+icon: template
+type: contentType
+permissions: []
+previewConfigurations: []

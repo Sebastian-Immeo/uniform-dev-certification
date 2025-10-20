@@ -1,0 +1,246 @@
+created: '2025-06-02T11:16:45.881537+00:00'
+modified: '2025-06-10T11:02:14.681299+00:00'
+pattern: false
+entry:
+  _id: 224393fb-69f2-4c08-a7de-e812ead3a7f0
+  _name: The Icelandic Air
+  _slug: third-blog-entry
+  _thumbnail: >-
+    https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/DzYErrpsSjehTnzTKbPKyg-Iceland.jpg
+  type: blog
+  fields:
+    tags:
+      type: contentReference
+      value: ${#jptr:/ref-224393fb-69f2-4c08-a7de-e812ead3a7f0-tags/entries}
+    title:
+      type: text
+      value: The Icelandic Air
+    author:
+      type: contentReference
+      value: ${#jptr:/ref-224393fb-69f2-4c08-a7de-e812ead3a7f0-author/entries/0}
+    content:
+      type: richText
+      value:
+        root:
+          type: root
+          format: ''
+          indent: 0
+          version: 1
+          children:
+            - tag: h3
+              type: heading
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: The standard Lorem Ipsum passage, used since the 1500s
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: >-
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum."
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+            - tag: h3
+              type: heading
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: >-
+                    Section 1.10.32 of "de Finibus Bonorum et Malorum", written
+                    by Cicero in 45 BC
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: >-
+                    "Sed ut perspiciatis unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et
+                    quasi architecto beatae vitae dicta sunt explicabo. Nemo
+                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                    aut fugit, sed quia consequuntur magni dolores eos qui
+                    ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                    velit, sed quia non numquam eius modi tempora incidunt ut
+                    labore et dolore magnam aliquam quaerat voluptatem. Ut enim
+                    ad minima veniam, quis nostrum exercitationem ullam corporis
+                    suscipit laboriosam, nisi ut aliquid ex ea commodi
+                    consequatur? Quis autem vel eum iure reprehenderit qui in ea
+                    voluptate velit esse quam nihil molestiae consequatur, vel
+                    illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+            - tag: h3
+              type: heading
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: 1914 translation by H. Rackham
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: >-
+                    "But I must explain to you how all this mistaken idea of
+                    denouncing pleasure and praising pain was born and I will
+                    give you a complete account of the system, and expound the
+                    actual teachings of the great explorer of the truth, the
+                    master-builder of human happiness. No one rejects, dislikes,
+                    or avoids pleasure itself, because it is pleasure, but
+                    because those who do not know how to pursue pleasure
+                    rationally encounter consequences that are extremely
+                    painful. Nor again is there anyone who loves or pursues or
+                    desires to obtain pain of itself, because it is pain, but
+                    because occasionally circumstances occur in which toil and
+                    pain can procure him some great pleasure. To take a trivial
+                    example, which of us ever undertakes laborious physical
+                    exercise, except to obtain some advantage from it? But who
+                    has any right to find fault with a man who chooses to enjoy
+                    a pleasure that has no annoying consequences, or one who
+                    avoids a pain that produces no resultant pleasure?"
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+            - tag: h3
+              type: heading
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: >-
+                    Section 1.10.33 of "de Finibus Bonorum et Malorum", written
+                    by Cicero in 45 BC
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: >-
+                    "At vero eos et accusamus et iusto odio dignissimos ducimus
+                    qui blanditiis praesentium voluptatum deleniti atque
+                    corrupti quos dolores et quas molestias excepturi sint
+                    occaecati cupiditate non provident, similique sunt in culpa
+                    qui officia deserunt mollitia animi, id est laborum et
+                    dolorum fuga. Et harum quidem rerum facilis est et expedita
+                    distinctio. Nam libero tempore, cum soluta nobis est
+                    eligendi optio cumque nihil impedit quo minus id quod maxime
+                    placeat facere possimus, omnis voluptas assumenda est, omnis
+                    dolor repellendus. Temporibus autem quibusdam et aut
+                    officiis debitis aut rerum necessitatibus saepe eveniet ut
+                    et voluptates repudiandae sint et molestiae non recusandae.
+                    Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat."
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+          direction: ltr
+    mainImage:
+      type: asset
+      value:
+        - _id: 3f7389b1-947f-4e0e-8136-51a922dd0a7b
+          type: image
+          fields:
+            id:
+              type: text
+              value: 2c5fdccf-e502-4809-b30b-c74c2f2112dc
+            url:
+              value: >-
+                https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/DzYErrpsSjehTnzTKbPKyg-Iceland.jpg
+              type: text
+            file:
+              type: file
+              value: 6fd897b6-e349-489f-8e7e-62b4efd1994f
+            size:
+              value: 397080
+              type: number
+            title:
+              type: text
+              value: Iceland.jpg
+            width:
+              value: 1280
+              type: number
+            height:
+              value: 774
+              type: number
+            mediaType:
+              value: image/jpeg
+              type: text
+          _source: uniform-assets
+  _dataResources:
+    ref-224393fb-69f2-4c08-a7de-e812ead3a7f0-tags:
+      type: uniformContentInternalReference
+      variables:
+        entryIds: d86cb7fe-6943-427f-aca5-e46b05956bdb
+    ref-224393fb-69f2-4c08-a7de-e812ead3a7f0-author:
+      type: uniformContentInternalReference
+      variables:
+        entryIds: 5d03b76c-191c-47e3-add1-9f4bfa71ed36
