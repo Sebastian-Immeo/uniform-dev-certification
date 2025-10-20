@@ -22,23 +22,23 @@ const ArticlePage = (props: ArticlePageProps) => {
     ? router.query.sub[1]
     : undefined;
 
-  useEffect(() => {
-    console.log("ArticlePage slug:", slug);
-    if (!slug) return;
-    const key = `articleRead:${slug}`;
-    if (!sessionStorage.getItem(key)) {
-      context.update({
-        events: {
-          trackSignal: (signalName, data) => {
-            console.log(`Tracking signal: ${signalName}`, data);
-            test.trackSignal(signalName, data);
-          },
-        },
-      });
+  // useEffect(() => {
+  //   console.log("ArticlePage slug:", slug);
+  //   if (!slug) return;
+  //   const key = `articleRead:${slug}`;
+  //   if (!sessionStorage.getItem(key)) {
+  //     context.update({
+  //       events: {
+  //         trackSignal: (signalName, data) => {
+  //           console.log(`Tracking signal: ${signalName}`, data);
+  //           test.trackSignal(signalName, data);
+  //         },
+  //       },
+  //     });
 
-      sessionStorage.setItem(key, "1");
-    }
-  }, [slug]);
+  //     sessionStorage.setItem(key, "1");
+  //   }
+  // }, [slug]);
 
   return (
     <div className="min-h-[70dvh] max-w-[1200px] mx-auto py-12">

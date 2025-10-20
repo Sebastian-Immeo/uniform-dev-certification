@@ -7,6 +7,7 @@ import {
 type PageProps = ComponentProps;
 
 const Page: React.FC<PageProps> = (props) => {
+  
   return (
     <div className="min-h-[70dvh] max-w-[1200px] mx-auto py-12">
       <UniformSlot name="pageHero" />
