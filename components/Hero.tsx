@@ -62,9 +62,7 @@ const Hero: React.FC<HeroProps> = (props) => {
       }}
     >
       <div
-        className={`relative max-w-4xl mx-auto text-center group ${
-          isSpecial ? "" : ""
-        }`}
+        className={`relative max-w-4xl mx-auto group ${isSpecial ? "" : ""}`}
       >
         <div className="relative z-20">
           <UniformText
