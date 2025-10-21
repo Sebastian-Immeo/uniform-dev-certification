@@ -16,6 +16,13 @@ import {
 import Image from "next/image";
 import { useEffect } from "react";
 
+// Extend Window interface to include dataLayer
+declare global {
+  interface Window {
+    dataLayer?: any[];
+  }
+}
+
 type HeroImageField = {
   url: { value: string };
   title?: { value: string };
@@ -33,9 +40,10 @@ type HeroProps = ComponentProps<{
   image?: HeroImage[];
   variant: "default" | "special";
   secondaryImage?: HeroImage[];
+  campaignName?: string;
 }>;
 
-const Hero: React.FC<HeroProps> = (props) => {
+const Hero = (props: HeroProps) => {
   const isSpecial = props.component.variant === "special";
   const primaryUrl = props.image?.[0]?.fields.url.value;
   const secondaryUrl = props.secondaryImage;
@@ -52,6 +60,21 @@ const Hero: React.FC<HeroProps> = (props) => {
   //   console.log("Current scores:", scores);
   //   console.log("console.log quirk from context", uniform.context.quirks);
   // }, []);
+
+  const triggerSpecial = () => {
+    if (!isSpecial) return;
+    if (typeof window !== "undefined" && window?.dataLayer) {
+      window.dataLayer.push({
+        event: "specialOfferClicked",
+        campaignName: props.campaignName || "",
+        offerType: "bundleDeal",
+        timestamp: Date.now(),
+      });
+      console.log(
+        "📊 GTM: specialOfferClicked event pushed to dataLayer for bundleDeal"
+      );
+    }
+  };
 
   return (
     <TrackFragment
@@ -83,6 +106,7 @@ const Hero: React.FC<HeroProps> = (props) => {
 
         {isSpecial && primaryUrl && secondaryUrl && (
           <a
+            onClick={() => triggerSpecial}
             href="/"
             className="relative inset-0 aspect-video z-0 grid grid-cols-2 mt-24"
           >

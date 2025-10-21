@@ -1,20 +1,20 @@
 import {
+  ComponentProps,
   registerUniformComponent,
   UniformRichText,
   UniformText,
 } from "@uniformdev/canvas-react";
-import Image from "next/image";
 import { useUniformContext } from "@uniformdev/context-react";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
-type ArticlePageProps = {
+type ArticlePageProps = ComponentProps<{
+  id?: string;
   image: string;
-};
+}>;
 
 const ArticlePage = (props: ArticlePageProps) => {
   const { context } = useUniformContext();
-  // This is deprecated.
   console.log("UNIFORM CONTEXT:", useUniformContext());
   const test = context.events;
   const router = useRouter();
@@ -41,7 +41,10 @@ const ArticlePage = (props: ArticlePageProps) => {
   // }, [slug]);
 
   return (
-    <div className="min-h-[70dvh] max-w-[1200px] mx-auto py-12">
+    <section
+      id={props.id}
+      className="min-h-[70dvh] max-w-[1200px] mx-auto py-12"
+    >
       <div className="relative z-10 mb-2">
         <Image
           src={props.image || "/placeholder.svg"}
@@ -89,7 +92,7 @@ const ArticlePage = (props: ArticlePageProps) => {
         placeholder="Hero description goes here"
         data-test-id="hero-description"
       />
-    </div>
+    </section>
   );
 };
 
