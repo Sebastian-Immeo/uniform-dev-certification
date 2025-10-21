@@ -1,4 +1,3 @@
-import { useFirstVisitQuirk } from "@/hooks/useFirstVisitQuirk";
 import { RichTextParamValue } from "@uniformdev/canvas";
 import { UniformRichText } from "@uniformdev/canvas-next";
 import {
@@ -7,14 +6,10 @@ import {
   UniformSlot,
   UniformText,
 } from "@uniformdev/canvas-react";
-import {
-  TrackFragment,
-  useQuirks,
-  useScores,
-  useUniformContext,
-} from "@uniformdev/context-react";
+import { TrackFragment } from "@uniformdev/context-react";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useRef } from "react";
 
 // Extend Window interface to include dataLayer
 declare global {
@@ -44,38 +39,31 @@ type HeroProps = ComponentProps<{
 }>;
 
 const Hero = (props: HeroProps) => {
+  const router = useRouter();
   const isSpecial = props.component.variant === "special";
   const primaryUrl = props.image?.[0]?.fields.url.value;
   const secondaryUrl = props.secondaryImage;
+  const clickedRef = useRef(false);
 
-  useFirstVisitQuirk();
-  // const uniform = useUniformContext();
-  // // This sends the same enrichment data
-
-  // const quirks = useQuirks();
-  // const scores = useScores();
-
-  // useEffect(() => {
-  //   console.log("Current quirks:", quirks);
-  //   console.log("Current scores:", scores);
-  //   console.log("console.log quirk from context", uniform.context.quirks);
-  // }, []);
-
-  const triggerSpecial = () => {
+  const triggerSpecial = async (e?: React.MouseEvent<HTMLAnchorElement>) => {
     if (!isSpecial) return;
-    if (typeof window !== "undefined" && window?.dataLayer) {
-      window.dataLayer.push({
-        event: "specialOfferClicked",
-        campaignName: props.campaignName || "",
-        offerType: "bundleDeal",
-        timestamp: Date.now(),
-      });
-      console.log(
-        "📊 GTM: specialOfferClicked event pushed to dataLayer for bundleDeal"
-      );
+    e?.preventDefault();
+
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      if (!clickedRef.current) {
+        clickedRef.current = true;
+        console.log("Triggering special offer click event");
+        window.dataLayer.push({
+          event: "specialOfferClicked",
+          campaignName: props.campaignName ?? "",
+          offerType: "bundleDeal",
+          timestamp: Date.now(),
+        });
+        requestAnimationFrame(() => router.push("/"));
+      }
     }
   };
-
   return (
     <TrackFragment
       behavior={{
@@ -106,8 +94,8 @@ const Hero = (props: HeroProps) => {
 
         {isSpecial && primaryUrl && secondaryUrl && (
           <a
-            onClick={() => triggerSpecial}
             href="/"
+            onClick={triggerSpecial}
             className="relative inset-0 aspect-video z-0 grid grid-cols-2 mt-24"
           >
             <span className="absolute inset-0 w-56 h-48 z-56 -translate-y-16 left-1/2 -translate-x-1/2 group-hover:scale-110 ease-in-out duration-300">
@@ -186,7 +174,7 @@ const Hero = (props: HeroProps) => {
             />
             <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/50 via-transparent to-black/25 rounded-lg" />
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform z-20 text-white inline-block px-2 py-8 uppercase bg-[#e24e3d] h-full w-[46px] border-x-2 border-white"></div>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform z-20 text-white inline-block px-8 py-2 text-lg font-semiBold uppercase bg-[#e24e3d] w-full border-y-2 border-white">
+            <div className="absolute text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform z-20 text-white inline-block px-8 py-2 text-lg font-semiBold uppercase bg-[#e24e3d] w-full border-y-2 border-white">
               Special Bundle Deal
             </div>
           </a>
