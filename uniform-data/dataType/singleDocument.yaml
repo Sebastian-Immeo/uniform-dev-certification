@@ -1,0 +1,25 @@
+id: singleDocument
+displayName: Single Author
+ttl: 30
+body: ''
+path: /data/query/${dataset}
+custom:
+  imageField: image
+  displayField: name
+  proposedName: Single Document
+  projectionQuery: '{..., "image": image.asset->}'
+  allowedContentTypes:
+    - author
+method: GET
+purgeKey: 31b31bcf-226c-423a-a301-c4ded1622d2a
+archetype: singleDocument
+variables:
+  id:
+    type: text
+    default: ''
+    displayName: Document ID
+parameters:
+  - key: query
+    value: '*[_id=="${id}"][0]{..., "image": image.asset->}'
+dataSourceId: sanity
+allowedOnComponents: []

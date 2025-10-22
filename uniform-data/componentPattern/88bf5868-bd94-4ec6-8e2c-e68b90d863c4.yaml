@@ -1,0 +1,65 @@
+composition:
+  _name: Hybrid pattern
+  _id: 88bf5868-bd94-4ec6-8e2c-e68b90d863c4
+  type: hero
+  variant: special
+  parameters:
+    title:
+      type: text
+      value: You are special here is a preview of our bundled content.
+    description:
+      type: richText
+      value:
+        root:
+          type: root
+          format: ''
+          indent: 0
+          version: 1
+          children:
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: Follow the link and find a treat made just for you
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+          direction: ltr
+    secondaryImage:
+      type: image
+      value: ${#jptr:/blogs Query Content/result/0/mainImage/url}
+  slots:
+    customcontent:
+      - _id: 9654806f-d31c-40aa-878a-d548666e816b
+        type: $slotSection
+        parameters:
+          name:
+            type: text
+            value: hero
+        _overridability:
+          hideLockedParameters: true
+  _dataResources:
+    blogs Query Content:
+      type: blogsQuery
+      variables:
+        contentType: post
+      isPatternParameter: true
+      ignorePatternParameterDefault: true
+  _overridability:
+    parameters:
+      $viz: 'yes'
+      image: 'yes'
+      title: 'yes'
+      description: 'yes'
+      specialimage: 'no'
+    hideLockedParameters: true
+created: '2025-06-24T08:49:37.372184+00:00'
+modified: '2025-10-22T09:22:56.048176+00:00'
+pattern: true

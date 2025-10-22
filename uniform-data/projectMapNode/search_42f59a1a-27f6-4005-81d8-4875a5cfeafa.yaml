@@ -1,0 +1,8 @@
+id: 42f59a1a-27f6-4005-81d8-4875a5cfeafa
+name: search
+order: 100
+path: /search
+type: placeholder
+pathSegment: search
+data: {}
+projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb

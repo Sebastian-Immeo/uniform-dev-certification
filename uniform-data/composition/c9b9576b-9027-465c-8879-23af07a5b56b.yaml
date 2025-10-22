@@ -1,0 +1,55 @@
+composition:
+  _name: Special
+  _id: c9b9576b-9027-465c-8879-23af07a5b56b
+  _slug: special
+  type: page
+  _overrides:
+    c9b9576b-9027-465c-8879-23af07a5b56b:
+      parameters:
+        metaTitle:
+          type: text
+          value: null
+        ishiddenfromnavigation:
+          type: checkbox
+          value: true
+    c9b9576b-9027-465c-8879-23af07a5b56b|d583df8c-4eec-48ae-93c9-26f1cfd2eff2:
+      parameters:
+        image:
+          type: asset
+          value:
+            - _id: dd7a3824-9492-4697-a13b-771a81e4129a
+              type: image
+              fields:
+                id:
+                  type: text
+                  value: 3be051d0-8fd2-438e-b6ca-b4e78c5a2f62
+                url:
+                  value: >-
+                    https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/zJl41eb2Que7rc_1NadXAQ-Antartica.jpg
+                  type: text
+                file:
+                  type: file
+                  value: c7d40644-9147-4316-a679-632dd3efe6be
+                size:
+                  value: 6021
+                  type: number
+                title:
+                  type: text
+                  value: Antartica.jpg
+                width:
+                  value: 275
+                  type: number
+                height:
+                  value: 183
+                  type: number
+                mediaType:
+                  value: image/jpeg
+                  type: text
+              _source: uniform-assets
+        title:
+          type: text
+          value: You are special here is a preview of our bundled content.
+  _pattern: ee5645a5-67df-415a-808d-53abf6e5916a
+created: '2025-06-24T09:01:17.876028+00:00'
+modified: '2025-06-24T14:35:51.8385+00:00'
+pattern: false

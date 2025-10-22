@@ -1,0 +1,112 @@
+composition:
+  _name: Personalization Test
+  _id: a4795cd7-1575-49e8-9237-e43e931e94c3
+  _slug: personalization-test
+  type: page
+  _overrides:
+    a4795cd7-1575-49e8-9237-e43e931e94c3|4ec89cfb-3df6-4ef7-bc50-1b05990f8718:
+      slots:
+        $slotSectionItems:
+          - _id: 727255fc-9162-4802-b073-eee15d5bebf6
+            type: $personalization
+            slots:
+              pz:
+                - _id: 9bf78d7e-078f-4090-b4b5-12f981b1ba4e
+                  type: customCard
+                  parameters:
+                    title:
+                      type: text
+                      value: Personalized
+                    $pzCrit:
+                      type: $pzCrit
+                      value:
+                        crit:
+                          - l: testMode
+                            r: '1'
+                            op: '='
+                    background:
+                      type: asset
+                      value:
+                        - _id: 62ea1335-8626-4f20-884d-dc889f864221
+                          type: image
+                          fields:
+                            id:
+                              type: text
+                              value: 2c5fdccf-e502-4809-b30b-c74c2f2112dc
+                            url:
+                              value: >-
+                                https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/DzYErrpsSjehTnzTKbPKyg-Iceland.jpg
+                              type: text
+                            file:
+                              type: file
+                              value: 6fd897b6-e349-489f-8e7e-62b4efd1994f
+                            size:
+                              value: 397080
+                              type: number
+                            title:
+                              type: text
+                              value: Iceland.jpg
+                            width:
+                              value: 1280
+                              type: number
+                            height:
+                              value: 774
+                              type: number
+                            mediaType:
+                              value: image/jpeg
+                              type: text
+                          _source: uniform-assets
+                - _id: 59bb0473-41a7-4038-af0e-0d853f48f956
+                  type: customCard
+                  parameters:
+                    title:
+                      type: text
+                      value: Default
+                    background:
+                      type: asset
+                      value:
+                        - _id: 0d321b95-1e3b-4caa-9cc6-859ca2f9f49c
+                          type: image
+                          fields:
+                            id:
+                              type: text
+                              value: f32f044b-6b6b-4242-807f-875c565e1d1d
+                            url:
+                              value: >-
+                                https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/jC3sqvDuSci5J_dNGPyiEA-Wind.jpg
+                              type: text
+                            file:
+                              type: file
+                              value: 120deeb0-9f9f-4a74-a405-e2dc03a4ea09
+                            size:
+                              value: 379515
+                              type: number
+                            title:
+                              type: text
+                              value: Wind.jpg
+                            width:
+                              value: 2500
+                              type: number
+                            height:
+                              value: 1877
+                              type: number
+                            mediaType:
+                              value: image/jpeg
+                              type: text
+                          _source: uniform-assets
+            parameters:
+              trackingEventName:
+                type: text
+                value: test-personalization
+    a4795cd7-1575-49e8-9237-e43e931e94c3|d583df8c-4eec-48ae-93c9-26f1cfd2eff2:
+      parameters:
+        title:
+          type: text
+          value: Personalization Test
+        description:
+          type: richText
+          value: null
+  _pattern: ee5645a5-67df-415a-808d-53abf6e5916a
+created: '2025-10-22T09:21:20.307761+00:00'
+modified: '2025-10-22T10:54:04.364806+00:00'
+pattern: false

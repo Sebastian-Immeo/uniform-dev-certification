@@ -1,44 +1,28 @@
+import { trackEvent } from "@/lib/GTM";
 import {
   ComponentProps,
   registerUniformComponent,
   UniformRichText,
   UniformText,
 } from "@uniformdev/canvas-react";
-import { useUniformContext } from "@uniformdev/context-react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type ArticlePageProps = ComponentProps<{
+  title: string;
   id?: string;
   image: string;
+  authorRef?: string;
 }>;
 
 const ArticlePage = (props: ArticlePageProps) => {
-  const { context } = useUniformContext();
-  console.log("UNIFORM CONTEXT:", useUniformContext());
-  const test = context.events;
-  const router = useRouter();
-  const slug = Array.isArray(router.query.sub)
-    ? router.query.sub[1]
-    : undefined;
-
-  // useEffect(() => {
-  //   console.log("ArticlePage slug:", slug);
-  //   if (!slug) return;
-  //   const key = `articleRead:${slug}`;
-  //   if (!sessionStorage.getItem(key)) {
-  //     context.update({
-  //       events: {
-  //         trackSignal: (signalName, data) => {
-  //           console.log(`Tracking signal: ${signalName}`, data);
-  //           test.trackSignal(signalName, data);
-  //         },
-  //       },
-  //     });
-
-  //     sessionStorage.setItem(key, "1");
-  //   }
-  // }, [slug]);
+  useEffect(() => {
+    trackEvent("articlePageView", {
+      articleTitle: props.title,
+      articleId: props.id,
+      articleAuthor: props.authorRef,
+    });
+  }, []);
 
   return (
     <section
@@ -66,7 +50,6 @@ const ArticlePage = (props: ArticlePageProps) => {
         />
         <button className="bg-carbon py-1 px-2 rounded-md flex items-center">
           <span className="text-xs text-white">
-            #{" "}
             <UniformText
               parameterId="categories"
               as="span"

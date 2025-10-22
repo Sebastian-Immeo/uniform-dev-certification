@@ -1,0 +1,6 @@
+id: '2'
+name: Super User
+cap: 4
+values:
+  - id: '1'
+    value: '1'

@@ -1,0 +1,5 @@
+id: firstVisitor
+name: First visitor
+description: This is the first time the user visits the site.
+type: 0
+inputs: []

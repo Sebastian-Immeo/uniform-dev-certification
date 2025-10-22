@@ -1,0 +1,9 @@
+created: '2025-06-24T14:48:57.246101+00:00'
+modified: '2025-06-24T14:48:57.246101+00:00'
+pattern: false
+entry:
+  _id: 4779e98e-cbc5-4a38-9e1a-c6d3cf87f44b
+  _name: 'New entry: Blog'
+  _slug: new-entry-blog
+  type: blog
+  fields: {}

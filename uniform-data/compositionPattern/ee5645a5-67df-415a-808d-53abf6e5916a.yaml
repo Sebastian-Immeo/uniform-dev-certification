@@ -1,10 +1,43 @@
 composition:
-  _name: Page pattern
+  _name: Special page pattern
   _id: ee5645a5-67df-415a-808d-53abf6e5916a
   type: page
-  parameters: {}
+  parameters:
+    $enr:
+      type: $enr
+      value: []
+    ishiddenfromnavigation:
+      type: checkbox
+      value: true
+  slots:
+    pageHero:
+      - _id: d583df8c-4eec-48ae-93c9-26f1cfd2eff2
+        type: hero
+        _pattern: 88bf5868-bd94-4ec6-8e2c-e68b90d863c4
+  _overrides:
+    d583df8c-4eec-48ae-93c9-26f1cfd2eff2:
+      dataResources:
+        blogs Query Content:
+          type: blogsQuery
+          variables:
+            contentType: post
+    d583df8c-4eec-48ae-93c9-26f1cfd2eff2|9654806f-d31c-40aa-878a-d548666e816b:
+      slots:
+        $slotSectionItems:
+          - _id: 4ec89cfb-3df6-4ef7-bc50-1b05990f8718
+            type: $slotSection
+            parameters:
+              name:
+                type: text
+                value: Custom
+            _overridability:
+              hideLockedParameters: true
   _overridability:
+    parameters:
+      $viz: 'yes'
+      metaTitle: 'yes'
+      ishiddenfromnavigation: 'yes'
     hideLockedParameters: true
 created: '2025-06-02T11:31:24.5344+00:00'
-modified: '2025-06-02T11:31:24.5344+00:00'
+modified: '2025-10-22T10:17:09.442902+00:00'
 pattern: true

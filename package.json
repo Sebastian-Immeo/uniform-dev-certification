@@ -14,6 +14,7 @@
     "uniform:publish": "uniform context manifest publish"
   },
   "dependencies": {
+    "@google-analytics/data": "^5.2.1",
     "@tailwindcss/postcss": "^4.1.7",
     "@uniformdev/canvas": "^20.1.0",
     "@uniformdev/canvas-next": "^20.1.0",
@@ -22,6 +23,7 @@
     "@uniformdev/context-next": "^20.1.0",
     "@uniformdev/context-react": "^20.1.0",
     "@uniformdev/project-map": "^20.1.0",
+    "googleapis": "^164.1.0",
     "next": "^15.1.6",
     "postcss": "^8.5.3",
     "react": "^18.2.0",

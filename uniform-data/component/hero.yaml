@@ -39,16 +39,34 @@ parameters:
           - superscript
           - subscript
     localizable: true
+  - id: image
+    name: Image
+    type: asset
+    typeConfig:
+      allowedTypes:
+        - image
+    localizable: true
+  - id: secondaryImage
+    name: Secondary Image
+    type: image
+    typeConfig:
+      required: false
+    localizable: true
 useTeamPermissions: true
 slots:
   - id: customcontent
     name: customContent
     allowedComponents:
       - customCard
+      - $personalization
     allowAllComponents: false
     inheritAllowedComponents: false
     patternsInAllowedComponents: false
 titleParameter: title
+thumbnailParameter: image
 canBeComposition: false
 created: '2025-05-28T10:41:02.956035+00:00'
-updated: '2025-05-30T14:32:20.572328+00:00'
+updated: '2025-06-25T12:29:46.516343+00:00'
+variants:
+  - id: special
+    name: Special

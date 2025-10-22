@@ -1,0 +1,7 @@
+id: superReader
+name: Super Reader
+description: more than 5 articles read
+type: 0
+inputs:
+  - dim: superUser
+    sign: +

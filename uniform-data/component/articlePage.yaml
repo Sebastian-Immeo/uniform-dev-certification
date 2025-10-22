@@ -31,11 +31,14 @@ parameters:
         - title
         - description
         - image
+        - authorRef
+        - categories
   - id: title
     name: Title
     type: text
     typeConfig: null
     localizable: true
+    allowConditionalValues: true
   - id: description
     name: Description
     type: richText
@@ -71,11 +74,25 @@ parameters:
           allowedTypes:
             - image
     localizable: true
+    allowConditionalValues: true
   - id: image
     name: Image
     type: image
     typeConfig: null
     localizable: true
+    allowConditionalValues: true
+  - id: authorRef
+    name: Author Ref
+    type: text
+    typeConfig: null
+    localizable: true
+    allowConditionalValues: true
+  - id: categories
+    name: Categories
+    type: text
+    typeConfig: null
+    localizable: true
+    allowConditionalValues: true
 categoryId: 54138588-cec1-4b24-93fe-87d1f6b7bfa4
 description: Pages for blogs and articles
 useTeamPermissions: true
@@ -83,4 +100,4 @@ slots: []
 titleParameter: title
 canBeComposition: true
 created: '2025-05-30T18:21:52.408005+00:00'
-updated: '2025-06-10T13:13:43.009393+00:00'
+updated: '2025-06-25T08:55:46.600985+00:00'

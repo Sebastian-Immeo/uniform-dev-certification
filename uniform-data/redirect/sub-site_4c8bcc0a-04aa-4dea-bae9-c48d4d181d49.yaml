@@ -1,5 +1,5 @@
 id: 4c8bcc0a-04aa-4dea-bae9-c48d4d181d49
-sourceUrl: https://uniform-hello-world.vercel.app/sub-site
+sourceUrl: http://localhost:3000/sub-site
 sourceRetainQuerystring: true
 targetUrl: https://example.com
 targetStatusCode: 301

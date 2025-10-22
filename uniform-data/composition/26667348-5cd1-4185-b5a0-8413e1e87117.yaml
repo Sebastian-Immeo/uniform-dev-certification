@@ -7,7 +7,214 @@ composition:
     metaTitle:
       type: text
       value: Home
-  _dataResources: {}
+  slots:
+    content:
+      - _id: c38f496c-1139-4ac4-8f46-0b5e7fa289a0
+        type: $personalization
+        slots:
+          pz:
+            - _id: 2d8ab08e-0312-4219-ab77-9b25bb779a8c
+              type: hero
+              variant: special
+              parameters:
+                image:
+                  type: asset
+                  value:
+                    - _id: 1520eab6-ff9a-4dd6-8915-2ae0369cfc77
+                      type: image
+                      fields:
+                        id:
+                          type: text
+                          value: 3be051d0-8fd2-438e-b6ca-b4e78c5a2f62
+                        url:
+                          value: >-
+                            https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/zJl41eb2Que7rc_1NadXAQ-Antartica.jpg
+                          type: text
+                        file:
+                          type: file
+                          value: c7d40644-9147-4316-a679-632dd3efe6be
+                        size:
+                          value: 6021
+                          type: number
+                        title:
+                          type: text
+                          value: Antartica.jpg
+                        width:
+                          value: 275
+                          type: number
+                        height:
+                          value: 183
+                          type: number
+                        mediaType:
+                          value: image/jpeg
+                          type: text
+                      _source: uniform-assets
+                title:
+                  type: text
+                  value: Welcome - First Time Visit Congratulations
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: launchCampaign
+                        r: 0
+                        op: '>'
+                    name: first-visit-gift
+                description:
+                  type: richText
+                  value:
+                    root:
+                      type: root
+                      format: ''
+                      indent: 0
+                      version: 1
+                      children:
+                        - tag: h1
+                          type: heading
+                          format: center
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: We hope you enjoy the content
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: ltr
+                      direction: ltr
+                secondaryImage:
+                  type: image
+                  value: ${#jptr:/blogs Query Content/result/2/mainImage/url}
+            - _id: d0532685-caee-4960-a3d0-355cb5cbfab7
+              type: hero
+              parameters:
+                image:
+                  type: asset
+                  value:
+                    - _id: ebe07474-f3d0-446c-8c8b-4d33ecd17d18
+                      type: image
+                      fields:
+                        id:
+                          type: text
+                          value: f32f044b-6b6b-4242-807f-875c565e1d1d
+                        url:
+                          value: >-
+                            https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/jC3sqvDuSci5J_dNGPyiEA-Wind.jpg
+                          type: text
+                        file:
+                          type: file
+                          value: 120deeb0-9f9f-4a74-a405-e2dc03a4ea09
+                        size:
+                          value: 379515
+                          type: number
+                        title:
+                          type: text
+                          value: Wind.jpg
+                        width:
+                          value: 2500
+                          type: number
+                        height:
+                          value: 1877
+                          type: number
+                        mediaType:
+                          value: image/jpeg
+                          type: text
+                      _source: uniform-assets
+                title:
+                  type: text
+                  value: Beautiful and Chilling Content From North to South Pole
+                description:
+                  type: richText
+                  value:
+                    root:
+                      type: root
+                      format: ''
+                      indent: 0
+                      version: 1
+                      children:
+                        - tag: h1
+                          type: heading
+                          format: center
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: >-
+                                Welcome to Arctic insights - the wild arctic
+                                nature at your fingertips. Since this is your
+                                first visit we have a special offering we would
+                                like for you to have. Click the link below to
+                                collext the gift.
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: ltr
+                        - type: paragraph
+                          format: ''
+                          indent: 0
+                          version: 1
+                          children: []
+                          direction: null
+                          textStyle: ''
+                          textFormat: 0
+                        - tag: h1
+                          type: heading
+                          format: center
+                          indent: 0
+                          version: 1
+                          children:
+                            - mode: normal
+                              text: ' '
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                            - link:
+                                path: /special
+                                type: projectMapNode
+                                nodeId: 544035ca-d62f-4775-a5f7-47a65e01efee
+                                projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
+                              type: link
+                              format: ''
+                              indent: 0
+                              version: 1
+                              children:
+                                - mode: normal
+                                  text: REVEAL THE DEAL
+                                  type: text
+                                  style: ''
+                                  detail: 0
+                                  format: 1
+                                  version: 1
+                              direction: ltr
+                              textFormat: 1
+                            - mode: normal
+                              text: ' '
+                              type: text
+                              style: ''
+                              detail: 0
+                              format: 0
+                              version: 1
+                          direction: null
+                          textFormat: 1
+                      direction: null
+        parameters:
+          count:
+            type: number
+            value: '1'
+          trackingEventName:
+            type: text
+            value: Home-Hero
+  _dataResources:
+    blogs Query Content:
+      type: blogsQuery
+      variables:
+        contentType: post
 created: '2025-05-28T10:41:04.84648+00:00'
-modified: '2025-06-10T11:06:57.359763+00:00'
+modified: '2025-10-20T12:39:50.334192+00:00'
 pattern: false

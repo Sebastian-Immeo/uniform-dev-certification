@@ -1,0 +1,8 @@
+id: firstVisit
+name: First Visit
+description: This is active for first time visitors.
+options:
+  - name: firstVisit
+    value: '0'
+  - name: secondVisit
+    value: '1'

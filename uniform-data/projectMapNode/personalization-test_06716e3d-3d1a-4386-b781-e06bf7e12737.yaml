@@ -1,0 +1,9 @@
+id: 06716e3d-3d1a-4386-b781-e06bf7e12737
+name: Personalization Test
+order: 0
+path: /personalization-test
+type: composition
+pathSegment: personalization-test
+data: {}
+compositionId: a4795cd7-1575-49e8-9237-e43e931e94c3
+projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb

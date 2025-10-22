@@ -3,18 +3,10 @@
     "pz": {
       "agg": {
         "firstVisitor": {
-          "inputs": [
-            {
-              "dim": "firstvisit"
-            }
-          ]
+          "inputs": []
         },
         "superUser": {
-          "inputs": [
-            {
-              "dim": "engagement"
-            }
-          ]
+          "inputs": []
         },
         "superReader": {
           "inputs": [
@@ -33,62 +25,6 @@
         }
       },
       "sig": {
-        "engagement": {
-          "str": 1,
-          "cap": 100,
-          "dur": "p",
-          "crit": {
-            "op": "&",
-            "type": "G",
-            "clauses": [
-              {
-                "type": "CK",
-                "match": {
-                  "op": "*"
-                },
-                "cookieName": "articlesRead"
-              }
-            ]
-          }
-        },
-        "articleRead": {
-          "str": 1,
-          "cap": 100,
-          "dur": "p",
-          "crit": {
-            "op": "&",
-            "type": "G",
-            "clauses": [
-              {
-                "type": "PVC",
-                "match": {
-                  "op": "=",
-                  "rhs": 1
-                }
-              }
-            ]
-          }
-        },
-        "test": {
-          "str": 50,
-          "cap": 100,
-          "dur": "t",
-          "crit": {
-            "op": "&",
-            "type": "G",
-            "clauses": [
-              {
-                "type": "QS",
-                "match": {
-                  "cs": false,
-                  "op": "=",
-                  "rhs": "1"
-                },
-                "queryName": "firstVisit"
-              }
-            ]
-          }
-        },
         "launchCampaign": {
           "str": 50,
           "cap": 100,
@@ -109,22 +45,39 @@
             ]
           }
         },
-        "firstvisit": {
-          "str": 1,
-          "cap": 1,
+        "testMode": {
+          "str": 50,
+          "cap": 100,
           "dur": "p",
           "crit": {
             "op": "&",
             "type": "G",
             "clauses": [
               {
-                "key": "firstVisit",
-                "type": "QK",
+                "type": "QS",
                 "match": {
-                  "cs": false,
                   "op": "=",
-                  "rhs": "0"
-                }
+                  "rhs": "1"
+                },
+                "queryName": "test"
+              }
+            ]
+          }
+        },
+        "debugMode": {
+          "str": 50,
+          "cap": 100,
+          "dur": "s",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "op": "*"
+                },
+                "queryName": "debug"
               }
             ]
           }

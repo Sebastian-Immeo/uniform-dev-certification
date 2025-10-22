@@ -1,0 +1,30 @@
+asset:
+  type: image
+  _id: f32f044b-6b6b-4242-807f-875c565e1d1d
+  _name: ''
+  fields:
+    title:
+      type: text
+      value: Wind.jpg
+    file:
+      type: file
+      value: 120deeb0-9f9f-4a74-a405-e2dc03a4ea09
+    mediaType:
+      value: image/jpeg
+      type: text
+    url:
+      value: >-
+        https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/jC3sqvDuSci5J_dNGPyiEA-Wind.jpg
+      type: text
+    size:
+      value: 379515
+      type: number
+    width:
+      value: 2500
+      type: number
+    height:
+      value: 1877
+      type: number
+    custom: {}
+created: '2025-06-25T07:36:34.261009+00:00'
+modified: '2025-06-25T07:36:34.261009+00:00'

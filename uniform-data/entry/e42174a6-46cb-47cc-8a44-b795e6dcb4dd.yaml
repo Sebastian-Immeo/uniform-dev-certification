@@ -1,0 +1,37 @@
+created: '2025-08-06T18:29:31.619431+00:00'
+modified: '2025-08-06T18:29:47.817854+00:00'
+pattern: false
+entry:
+  _id: e42174a6-46cb-47cc-8a44-b795e6dcb4dd
+  _name: Test
+  _slug: test
+  type: category
+  fields:
+    title:
+      type: text
+      value: Test
+    description:
+      type: richText
+      value:
+        root:
+          type: root
+          format: ''
+          indent: 0
+          version: 1
+          children:
+            - type: paragraph
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - mode: normal
+                  text: Test
+                  type: text
+                  style: ''
+                  detail: 0
+                  format: 0
+                  version: 1
+              direction: ltr
+              textStyle: ''
+              textFormat: 0
+          direction: ltr

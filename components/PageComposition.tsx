@@ -2,11 +2,10 @@ import { UniformDeployedPreviewBanner } from "@/components/UniformDeployedPrevie
 import { useSetViewportQuirk } from "@/hooks/useSetViewportQuirk";
 import { RootComponentInstance } from "@uniformdev/canvas";
 import { UniformComposition } from "@uniformdev/canvas-react";
-import Head from "next/head";
-import Footer from "./Footer";
-import Navigation, { NavLink } from "./Navigation";
 import Script from "next/script";
 import GTMDataLogger from "../components/GTMDataLogger";
+import Footer from "./Footer";
+import Navigation, { NavLink } from "./Navigation";
 
 export interface PageCompositionProps {
   data: RootComponentInstance;
@@ -27,12 +26,13 @@ export default function PageComposition({
   const loadGTM = !!GTM_ID;
 
   const pageTags = {
-    poc: "We have contact to dataLayer from here",
     event: "pageView",
     pageId: pageId,
     pageTitle: metaTitle?.value || "Untitled Page",
     pagePath: typeof window !== "undefined" ? window.location.pathname : "/",
   };
+
+  console.log('tags', pageTags);
 
   return (
     <>

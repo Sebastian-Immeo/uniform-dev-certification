@@ -10,12 +10,17 @@ parameters:
     typeConfig:
       required: false
     localizable: true
+  - id: ishiddenfromnavigation
+    name: isHiddenFromNavigation
+    type: checkbox
+    typeConfig: null
 useTeamPermissions: true
 slots:
   - id: pageHero
     name: Page Hero
     allowedComponents:
       - hero
+      - $personalization
     allowAllComponents: false
     inheritAllowedComponents: false
     patternsInAllowedComponents: false
@@ -29,6 +34,7 @@ slots:
       - customCard
       - $loop
       - grid
+      - logo
     allowAllComponents: false
     inheritAllowedComponents: false
     patternsInAllowedComponents: false
@@ -39,4 +45,4 @@ slugSettings:
   regularExpressionMessage: ''
 canBeComposition: true
 created: '2025-05-28T10:41:02.386049+00:00'
-updated: '2025-06-10T13:42:43.673285+00:00'
+updated: '2025-06-30T11:20:40.652662+00:00'

@@ -33,6 +33,40 @@ composition:
                   type: sys-reserved-loop
                   variables:
                     connectedData: '#jptr:/blogs Query Content/result:fa=c'
+    pageHero:
+      - _id: fed2d5aa-6e67-41cf-8544-5fdc54327c81
+        type: hero
+        parameters:
+          title:
+            type: text
+            value: Articles
+          description:
+            type: richText
+            value:
+              root:
+                type: root
+                format: ''
+                indent: 0
+                version: 1
+                children:
+                  - type: paragraph
+                    format: ''
+                    indent: 0
+                    version: 1
+                    children:
+                      - mode: normal
+                        text: >-
+                          Explore our great selection from all our proffesional
+                          Arctic writers
+                        type: text
+                        style: ''
+                        detail: 0
+                        format: 0
+                        version: 1
+                    direction: ltr
+                    textStyle: ''
+                    textFormat: 0
+                direction: ltr
   _dataResources:
     Blogs Content:
       type: blogList
@@ -63,6 +97,7 @@ composition:
             nodeId: a6b3ae50-a34d-48d9-a1ac-d0d2ab30b0db
             projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
             dynamicInputValues:
+              article: ${#jptr:/blogs Query Content result Loop Item/entry/_slug}
               article-detail: ${#jptr:/blogs Query Content result Loop Item/entry/_slug}
           conditions:
             - when:
@@ -97,6 +132,15 @@ composition:
             contentType: post
     ed9942ff-c7b4-422a-bb49-2cc0ca6e4c6c:
       parameters:
+        url:
+          type: link
+          value:
+            path: /articles/${#jptr:/blogs Query Content result Loop Item/_id}
+            type: projectMapNode
+            nodeId: a6b3ae50-a34d-48d9-a1ac-d0d2ab30b0db
+            projectMapId: 8a35c419-5150-4f76-aa21-7e4976c9dfcb
+            dynamicInputValues:
+              article: ${#jptr:/blogs Query Content result Loop Item/_id}
         title:
           type: text
           value: ${#jptr:/blogs Query Content result Loop Item/title}
@@ -119,5 +163,5 @@ composition:
           variables:
             contentType: post
 created: '2025-06-02T11:12:52.907347+00:00'
-modified: '2025-06-13T20:46:31.508568+00:00'
+modified: '2025-06-25T09:13:41.321912+00:00'
 pattern: false

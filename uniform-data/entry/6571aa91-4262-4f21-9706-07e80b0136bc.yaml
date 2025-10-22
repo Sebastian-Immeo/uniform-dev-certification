@@ -1,0 +1,9 @@
+created: '2025-08-06T18:29:17.257029+00:00'
+modified: '2025-08-06T18:29:17.257029+00:00'
+pattern: false
+entry:
+  _id: 6571aa91-4262-4f21-9706-07e80b0136bc
+  _name: 'New entry: Author'
+  _slug: new-entry-author
+  type: author
+  fields: {}

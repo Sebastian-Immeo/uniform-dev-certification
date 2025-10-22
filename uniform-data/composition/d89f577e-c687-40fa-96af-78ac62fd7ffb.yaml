@@ -7,6 +7,80 @@ composition:
     metaTitle:
       type: text
       value: About Us
+  slots:
+    content:
+      - _id: 55b4f29c-a677-4189-86b0-a55aa71e1e8a
+        type: hero
+        _pattern: 88bf5868-bd94-4ec6-8e2c-e68b90d863c4
+  _overrides:
+    55b4f29c-a677-4189-86b0-a55aa71e1e8a:
+      parameters:
+        image:
+          type: asset
+          value:
+            - _id: 0ca241b6-512d-41f6-8f3f-4c4923d91a51
+              type: image
+              fields:
+                id:
+                  type: text
+                  value: 2c5fdccf-e502-4809-b30b-c74c2f2112dc
+                url:
+                  value: >-
+                    https://img.uniform.global/p/btTg0Cu0RXGMNpCA0aaCTQ/DzYErrpsSjehTnzTKbPKyg-Iceland.jpg
+                  type: text
+                file:
+                  type: file
+                  value: 6fd897b6-e349-489f-8e7e-62b4efd1994f
+                size:
+                  value: 397080
+                  type: number
+                title:
+                  type: text
+                  value: Iceland.jpg
+                width:
+                  value: 1280
+                  type: number
+                height:
+                  value: 774
+                  type: number
+                mediaType:
+                  value: image/jpeg
+                  type: text
+              _source: uniform-assets
+        title:
+          type: text
+          value: You are special!
+        description:
+          type: richText
+          value:
+            root:
+              type: root
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - tag: h1
+                  type: heading
+                  format: center
+                  indent: 0
+                  version: 1
+                  children:
+                    - mode: normal
+                      text: >-
+                        Here is a preview of our bundled content. Follow the
+                        link and find a treat made just for you
+                      type: text
+                      style: ''
+                      detail: 0
+                      format: 0
+                      version: 1
+                  direction: ltr
+              direction: ltr
+      dataResources:
+        blogs Query Content:
+          type: blogsQuery
+          variables:
+            contentType: post
 created: '2025-05-28T10:41:04.846321+00:00'
-modified: '2025-06-10T10:16:16.62683+00:00'
+modified: '2025-06-24T13:08:38.522044+00:00'
 pattern: false

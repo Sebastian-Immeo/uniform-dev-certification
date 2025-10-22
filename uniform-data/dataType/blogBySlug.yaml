@@ -1,0 +1,25 @@
+id: blogBySlug
+displayName: Blog by slug
+ttl: 30
+path: /data/query/${dataset}
+custom:
+  imageField: mainImage
+  searchField: title
+  displayField: title
+  proposedName: Single Document
+  projectionQuery: '{..., "mainImage": mainImage.asset->}'
+  allowedContentTypes:
+    - post
+method: GET
+purgeKey: 04c5b5fc-c83a-4845-a957-67ada4d176f0
+archetype: singleDocument
+variables:
+  id:
+    type: text
+    default: ''
+    displayName: Document ID
+parameters:
+  - key: query
+    value: '*[_id=="${id}"][0]{..., "mainImage": mainImage.asset->}'
+dataSourceId: sanity
+allowedOnComponents: []

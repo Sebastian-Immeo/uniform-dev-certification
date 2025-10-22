@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://uniform.app/schemas/json-schema/component-definition/v1.json
+id: logo
+name: Logo
+icon: awards
+parameters:
+  - id: logoText
+    name: Logo Text
+    type: text
+    typeConfig: null
+    localizable: true
+useTeamPermissions: true
+slots: []
+titleParameter: logoText
+canBeComposition: false
+created: '2025-06-30T11:18:19.255743+00:00'
+updated: '2025-06-30T11:18:19.255743+00:00'
