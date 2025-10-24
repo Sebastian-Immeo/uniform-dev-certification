@@ -39,3 +39,7 @@ package-lock.json
 
 # Ignore secret files
 /western-plate-475918-f1-48176b75d264.json
+
+# environment variables
+.env
+
