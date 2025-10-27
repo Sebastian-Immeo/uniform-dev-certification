@@ -1,15 +1,13 @@
 // pages/api/test-ga4.ts (or app/api/test-ga4/route.ts)
 import { NextApiRequest, NextApiResponse } from "next";
-import { getPageViews } from "../../lib/ga4-client";
+import { getCustomEventCount } from "../../lib/ga4-client";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const pagePath = (req.query.pagePath as string) || "/";
   try {
-    // Test with your homepage
-    const views = await getPageViews(pagePath);
+    const views = await getCustomEventCount("articlePageView");
     res.json({
       success: true,
       pageViews: views,

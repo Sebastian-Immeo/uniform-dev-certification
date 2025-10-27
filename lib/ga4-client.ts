@@ -47,3 +47,27 @@ export async function getPageViews(pagePath: string) {
     return 0;
   }
 }
+
+export async function getCustomEventCount(eventName: string) {
+  try {
+    const [response] = await analyticsDataClient.runReport({
+      property: `properties/${process.env.GA4_PROPERTY_ID}`,
+      dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
+      dimensions: [{ name: "eventName" }],
+      metrics: [{ name: "eventCount" }],
+      dimensionFilter: {
+        filter: {
+          fieldName: "eventName",
+          stringFilter: { matchType: "EXACT", value: eventName },
+        },
+      },
+    });
+
+    console.log("GA4 Response:", response);
+
+    return parseInt(response.rows?.[0]?.metricValues?.[0]?.value || "0");
+  } catch (error) {
+    console.error("GA4 Error:", error);
+    return 0;
+  }
+}

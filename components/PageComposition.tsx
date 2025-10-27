@@ -2,8 +2,10 @@ import { UniformDeployedPreviewBanner } from "@/components/UniformDeployedPrevie
 import { useSetViewportQuirk } from "@/hooks/useSetViewportQuirk";
 import { RootComponentInstance } from "@uniformdev/canvas";
 import { UniformComposition } from "@uniformdev/canvas-react";
+import { useRouter } from "next/router";
 import Script from "next/script";
 import GTMDataLogger from "../components/GTMDataLogger";
+import Analytics from "./Analytics";
 import Footer from "./Footer";
 import Navigation, { NavLink } from "./Navigation";
 
@@ -20,6 +22,7 @@ export default function PageComposition({
   // set initial viewport quirk
   useSetViewportQuirk();
 
+  const isEditorView = useRouter().query?.is_incontext_editing_mode === "true";
   const pageId = composition?._name || "unknown-page-id";
 
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
@@ -31,8 +34,6 @@ export default function PageComposition({
     pageTitle: metaTitle?.value || "Untitled Page",
     pagePath: typeof window !== "undefined" ? window.location.pathname : "/",
   };
-
-  console.log('tags', pageTags);
 
   return (
     <>
@@ -150,7 +151,7 @@ export default function PageComposition({
       <UniformDeployedPreviewBanner />
       <main className="main">
         <Navigation navLinks={navLinks} />
-
+        <Analytics />
         <GTMDataLogger />
         <UniformComposition data={composition} />
         <Footer />

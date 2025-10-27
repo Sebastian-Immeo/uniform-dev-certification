@@ -27,7 +27,7 @@ const ArticlePage = (props: ArticlePageProps) => {
   return (
     <section
       id={props.id}
-      className="min-h-[70dvh] max-w-[1200px] mx-auto py-12"
+      className="min-h-[70dvh] max-w-[1200px] mx-auto py-12 px-6"
     >
       <div className="relative z-10 mb-2">
         <Image
