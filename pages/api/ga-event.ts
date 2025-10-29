@@ -1,13 +1,18 @@
 // pages/api/test-ga4.ts (or app/api/test-ga4/route.ts)
 import { NextApiRequest, NextApiResponse } from "next";
-import { getCustomEventCount } from "../../lib/ga4-client";
+import {
+  getActiveUsersLast30m,
+  getCustomEventCount,
+} from "../../lib/ga4-client";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    const views = await getCustomEventCount("articlePageView");
+    // const views = await getCustomEventCount("articlePageView");
+    const views = await getActiveUsersLast30m();
+    console.log("Active Users in Last 30 Minutes:", views);
     res.json({
       success: true,
       pageViews: views,

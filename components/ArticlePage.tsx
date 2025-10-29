@@ -6,6 +6,7 @@ import {
   UniformText,
 } from "@uniformdev/canvas-react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 type ArticlePageProps = ComponentProps<{
@@ -16,6 +17,8 @@ type ArticlePageProps = ComponentProps<{
 }>;
 
 const ArticlePage = (props: ArticlePageProps) => {
+  const path = useRouter().asPath.split("?")[0];
+  console.log("ArticlePage path:", path);
   useEffect(() => {
     trackEvent("articlePageView", {
       articleTitle: props.title,
@@ -23,6 +26,15 @@ const ArticlePage = (props: ArticlePageProps) => {
       articleAuthor: props.authorRef,
     });
   }, []);
+
+  const handleShare = () => {
+    console.log("Share button clicked"); // Debug log
+    trackEvent("shared", {
+      articleTitle: props.title,
+      articleId: props.id,
+      articlePath: path, // This is perfect - keep using path
+    });
+  };
 
   return (
     <section
@@ -38,6 +50,16 @@ const ArticlePage = (props: ArticlePageProps) => {
           width={800}
           height={400}
         />
+
+        <button
+          onClick={handleShare}
+          className="absolute cursor-pointer top-3 right-3 z-20 mt-auto ml-auto inline-block bg-white text-black text-base font-medium
+                 px-6 py-2 rounded-md shadow transition-all duration-200
+                 hover:bg-gray-100 hover:shadow-md hover:scale-105"
+          style={{ fontFamily: "Britti Sans" }}
+        >
+          Share Article
+        </button>
       </div>
 
       <div className="w-full flex justify-between items-center">
