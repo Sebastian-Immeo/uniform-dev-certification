@@ -1,0 +1,237 @@
+composition:
+  _name: C.21 Sign Up Formulars pattern
+  _id: a0f72b81-4e50-4063-8809-90c0f0b62c53
+  type: c21SignUpFormulars
+  parameters:
+    buttonText:
+      type: text
+      locales:
+        da: INDSÆT OBLIGATORISK TEKST
+        en: INSERT MANDATORY TEXT
+    emailLabel:
+      type: text
+      locales:
+        da: Email
+        en: Email
+    formHandle:
+      type: text
+      value: INSERT HTML SNIPPET
+    companyLabel:
+      type: text
+      locales:
+        da: Virksomhed
+        en: Company
+    countryLabel:
+      type: text
+      locales:
+        da: Land
+        en: >-
+          ${#jptr:/Form Dropdown Field
+          Content/entries/0/entry/fields/label/value}
+    formTermsText:
+      type: richText
+      locales:
+        en:
+          root:
+            type: root
+            format: ''
+            indent: 0
+            version: 1
+            children:
+              - type: paragraph
+                format: ''
+                indent: 0
+                version: 1
+                children:
+                  - mode: normal
+                    text: "You can unsubscribe emails at any time through links in the emails you receive, and you can withdraw your consent at any time by contacting\_FORCE Technology's marketing department."
+                    type: text
+                    style: ''
+                    detail: 0
+                    format: 0
+                    version: 1
+                direction: ltr
+                textStyle: ''
+                textFormat: 0
+              - type: paragraph
+                format: ''
+                indent: 0
+                version: 1
+                children: []
+                direction: ltr
+                textStyle: ''
+                textFormat: 0
+              - type: paragraph
+                format: ''
+                indent: 0
+                version: 1
+                children:
+                  - mode: normal
+                    text: "FORCE Technology collects and stores personal information. Further information about your personal data and your rights is contained in FORCE Technology's\_personal data policy.\L\_"
+                    type: text
+                    style: ''
+                    detail: 0
+                    format: 0
+                    version: 1
+                direction: ltr
+                textStyle: ''
+                textFormat: 0
+            direction: ltr
+    lastNameLabel:
+      type: text
+      locales:
+        da: Efternavn
+        en: Last name
+    closeAriaLabel:
+      type: text
+      locales:
+        da: Luk formular
+        en: Close form
+    countryOptions:
+      type: $block
+      value: >-
+        ${#jptr:/Form Dropdown Field
+        Content/entries/0/entry/fields/options/value}
+    firstNameLabel:
+      type: text
+      locales:
+        da: Navn
+        en: Name
+    formErrorTitle:
+      type: text
+      locales:
+        da: Fejl
+        en: Error
+    acceptTermsLabel:
+      type: text
+      locales:
+        da: >-
+          Ja, jeg giver hermed mit samtykke til, at FORCE Technology og
+          koncernselskaber må sende mig information og markedsføringsmateriale i
+          form af e-mails med nyheder, artikler, cases og lignende, samt
+          information om events, kurser og lignende.
+        en: >-
+          Yes, I hereby give my consent to FORCE Technology and group companies
+          to send me information and marketing material in the form of e-mails
+          with news, articles, cases and the like, as well as information about
+          events, courses and the like.
+    emailPlaceholder:
+      type: text
+      locales:
+        da: Skriv din email
+        en: Enter email
+    formErrorMessage:
+      type: text
+      locales:
+        da: Der skete noget uventet. Prøv venligst igen senere.
+        en: Something unexpected happend. PLease try again later.
+    submitButtonText:
+      type: text
+      locales:
+        da: Send
+        en: Submit
+    termsToBeAccpted:
+      type: select
+      value: permission_store_and_process
+    formSuccesMessage:
+      type: text
+      locales:
+        da: >-
+          Tak for din tilmelding!
+
+          Du vil snart modtage en bekræftelsesmail. Bemærk venligst: Hvis du
+          ikke modtager en bekræftelsesmail, så tjek venligst dit spamfilter.
+        en: "Thank you for registering!\L\nYou will receive an e-mail confirmation mail shortly. Please note:\_If you do not receive a confirmation e-mail,\_ please check your spam filter."
+    companyPlaceholder:
+      type: text
+      locales:
+        da: Skriv virksomhedsnavn
+        en: Enter company name
+    countryPlaceholder:
+      type: text
+      locales:
+        da: Skriv land
+        en: >-
+          ${#jptr:/Form Dropdown Field
+          Content/entries/0/entry/fields/placeholder/value}
+    lastNamePlaceholder:
+      type: text
+      locales:
+        da: Skriv dit efternavn
+        en: Enter last name
+    firstNamePlaceholder:
+      type: text
+      locales:
+        da: Skriv dit navn
+        en: Enter name
+    acceptMarketingTermsLabel:
+      type: text
+      locales:
+        da: Jeg accepterer, at FORCE Technology indsamler mine data.
+        en: I accept that FORCE Technology collects my data.
+  slots:
+    appendedFields:
+      - _id: 2af2da84-9b30-45e6-b791-c4346caad570
+        type: $slotSection
+        parameters:
+          name:
+            type: text
+            value: Appended fields
+        _overridability:
+          hideLockedParameters: true
+    prependedFields:
+      - _id: b4baec34-9f9b-42d7-8648-9664e42fb7f4
+        type: $slotSection
+        parameters:
+          name:
+            type: text
+            value: Prepended fields
+          specific:
+            type: array
+            value:
+              - checkbox
+              - dropdown
+              - radioButtonGroup
+              - textBox
+              - textField
+              - textsection
+          groupType:
+            type: text
+            value: inherit
+        _overridability:
+          hideLockedParameters: true
+  _dataResources:
+    Form Dropdown Field Content:
+      type: formDropdownField
+      variables:
+        locale: ${locale}
+        search: ''
+        filters: '{"type[eq]":"formDropdownField"}'
+        entryIds: 428b0736-0bab-4360-bd5d-2cb30c97725b
+        contentTypes: formDropdownField
+      isPatternParameter: false
+      ignorePatternParameterDefault: false
+  _overridability:
+    variants: true
+    parameters:
+      id: 'yes'
+      formTitle: 'yes'
+      preheader: 'yes'
+      buttonText: 'yes'
+      formHandle: 'yes'
+      description: 'yes'
+      formTermsText: 'yes'
+      formErrorTitle: 'yes'
+      navigationName: 'yes'
+      formErrorMessage: 'yes'
+      isButtonDarkMode: 'yes'
+      submitButtonText: 'yes'
+      termsToBeAccpted: 'yes'
+      formSuccesMessage: 'yes'
+    hideLockedParameters: true
+  _locales:
+    - en
+    - da
+created: '2025-09-30T12:28:16.420882+00:00'
+modified: '2025-10-14T07:37:49.446006+00:00'
+pattern: true

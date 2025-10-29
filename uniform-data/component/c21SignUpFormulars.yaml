@@ -1,0 +1,244 @@
+# yaml-language-server: $schema=https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+id: c21SignUpFormulars
+name: C.21 Sign Up Formulars
+icon: profile
+parameters:
+  - id: buttonText
+    name: Button Text
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: isButtonDarkMode
+    name: Is Button Dark Mode
+    type: checkbox
+    typeConfig: null
+  - id: formHandle
+    name: Form Handle
+    type: text
+    helpText: Salesforce api handle. Copy the fulle html snippet from Salesforce.
+    typeConfig:
+      required: true
+  - id: termsToBeAccpted
+    name: Terms to be accepted
+    type: select
+    helpText: Determines which terms should be accepted before users can send the form.
+    typeConfig:
+      options:
+        - text: permission_store_and_process
+          value: permission_store_and_process
+        - text: permission_type_marketing
+          value: permission_type_marketing
+        - text: both
+          value: both
+      required: true
+  - id: formSuccesMessage
+    name: Form Succes Message
+    type: text
+    helpText: Shown to the user when form is succesfully send
+    typeConfig:
+      required: true
+      multiline: true
+      linesCount: 2
+    localizable: true
+  - id: formErrorTitle
+    name: Form Error Title
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: formErrorMessage
+    name: Form Error Message
+    type: text
+    helpText: >-
+      Shown to the user when something unexpected happens and the form is not
+      send.
+    typeConfig:
+      required: true
+      multiline: true
+      linesCount: 2
+    localizable: true
+  - id: submitButtonText
+    name: Submit Button Text
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: formTermsText
+    name: Form Terms Text
+    type: richText
+    helpText: >-
+      Text sitting next to the submit button. Often used to describe terms of
+      sending the form.
+    typeConfig:
+      elements:
+        builtIn:
+          - h1
+          - h2
+          - h3
+          - h4
+          - h5
+          - h6
+          - unorderedList
+          - orderedList
+          - link
+          - variable
+      required: false
+      formatting:
+        builtIn:
+          - bold
+          - italic
+          - underline
+          - strikethrough
+      elementsConfig:
+        asset:
+          allowedTypes:
+            - image
+    localizable: true
+  - id: closeAriaLabel
+    name: Close Aria Label
+    type: text
+    helpText: Important for accessibility. But only relevant when used as a popover.
+    typeConfig: null
+    localizable: true
+  - id: 94ed56fa-fe8c-4ae3-afb8-d71a023978f9
+    name: Field Data
+    type: group
+    typeConfig:
+      collapsed: true
+      childrenParams:
+        - firstNameLabel
+        - firstNamePlaceholder
+        - lastNameLabel
+        - lastNamePlaceholder
+        - emailLabel
+        - emailPlaceholder
+        - countryLabel
+        - countryPlaceholder
+        - countryOptions
+        - companyLabel
+        - companyPlaceholder
+        - acceptMarketingTermsLabel
+        - acceptTermsLabel
+  - id: firstNameLabel
+    name: First Name Label
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: firstNamePlaceholder
+    name: First Name Placeholder
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: lastNameLabel
+    name: Last Name Label
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: lastNamePlaceholder
+    name: Last Name Placeholder
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: emailLabel
+    name: Email Label
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: emailPlaceholder
+    name: Email Placeholder
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: countryLabel
+    name: Country Label
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: countryPlaceholder
+    name: Country Placeholder
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: countryOptions
+    name: Country Options
+    type: $block
+    typeConfig:
+      required: true
+      allowedTypes:
+        - option
+  - id: companyLabel
+    name: Company Label
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: companyPlaceholder
+    name: Company Placeholder
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: acceptMarketingTermsLabel
+    name: Accept Marketing Terms Label
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: acceptTermsLabel
+    name: Accept Terms Label
+    type: text
+    helpText: Text to the right side of the terms checkbox.
+    typeConfig:
+      required: false
+    localizable: true
+categoryId: fd9a1fb0-a8fc-4ea4-9bde-1e1e49bd8bf6
+useTeamPermissions: true
+slots:
+  - id: prependedFields
+    name: Prepended Fields
+    allowedComponents:
+      - textField
+      - textBox
+      - textsection
+      - radioButtonGroup
+      - dropdown
+      - checkbox
+    allowAllComponents: false
+    inheritAllowedComponents: false
+    patternsInAllowedComponents: false
+  - id: appendedFields
+    name: Appended Fields
+    allowedComponents:
+      - textField
+      - textBox
+      - textsection
+      - radioButtonGroup
+      - checkbox
+      - dropdown
+    allowAllComponents: false
+    inheritAllowedComponents: false
+    patternsInAllowedComponents: false
+slugSettings:
+  unique: 'no'
+  required: disabled
+  regularExpression: ''
+  regularExpressionMessage: ''
+titleParameter: buttonText
+thumbnailParameter: headshot
+canBeComposition: false
+created: '2025-09-30T12:04:03.837538+00:00'
+updated: '2025-10-08T12:18:37.719435+00:00'
+variants:
+  - id: primary
+    name: Primary
+  - id: secondary
+    name: Secondary
+  - id: tertiary
+    name: Tertiary

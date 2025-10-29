@@ -6,6 +6,7 @@ interface AnalyticsData {
   pageViews: number;
   personalizations: number;
   campaignsClicked: number;
+  formsSend: number;
 }
 
 const Analytics = () => {
@@ -15,6 +16,7 @@ const Analytics = () => {
     pageViews: 0,
     personalizations: 0,
     campaignsClicked: 0,
+    formsSend: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,6 +40,7 @@ const Analytics = () => {
           pageViews: pageViewsData.pageViews || 0,
           personalizations,
           campaignsClicked,
+          formsSend: pageViewsData.formsSend || 0,
         });
       } catch (error) {
         console.error("Error fetching analytics:", error);
