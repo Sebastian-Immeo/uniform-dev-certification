@@ -53,8 +53,6 @@ export function ContactOverlay({
     { send: boolean; success: boolean } | undefined
   >();
 
-  console.log("contact form props where are these?", contactFormProps);
-
   const handleFormSubmitState = (success: boolean) => {
     setIsOpen(false);
     if (!formRequestStatus) {

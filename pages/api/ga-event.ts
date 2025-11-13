@@ -12,7 +12,6 @@ export default async function handler(
   try {
     // const views = await getCustomEventCount("articlePageView");
     const views = await getActiveUsersLast30m();
-    console.log("Active Users in Last 30 Minutes:", views);
     res.json({
       success: true,
       pageViews: views,

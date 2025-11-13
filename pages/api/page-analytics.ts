@@ -14,6 +14,9 @@ export default async function handler(
       getPageCustomEvents(pagePath)
     ]);
 
+    console.log('Page Analytics Data:', pageAnalytics);
+    console.log('Custom Events Data:', customEvents);
+
     res.json({
       success: true,
       pagePath,

@@ -81,6 +81,13 @@ export async function getActiveUsersLast30m() {
   return parseInt(response.rows?.[0]?.metricValues?.[0]?.value || "0", 10);
 }
 
+const EXACT = (fieldName: string, value: string) => ({
+  filter: { fieldName, stringFilter: { matchType: "EXACT" as const, value } },
+});
+const IN_LIST = (fieldName: string, values: string[]) => ({
+  filter: { fieldName, inListFilter: { values } },
+});
+
 export async function getPageAnalytics(pagePath: string) {
   try {
     // Get lifetime + 7d page views combined
@@ -156,97 +163,63 @@ export async function getPageAnalytics(pagePath: string) {
 
 export async function getPageCustomEvents(pagePath: string) {
   try {
+    const property = `properties/${process.env.GA4_PROPERTY_ID}`;
+    const dateRanges = [{ startDate: "7daysAgo", endDate: "today" }];
+
     const eventPromises = [
-      // Form submissions
+      // Form submissions: cover both old and new names
       analyticsDataClient.runReport({
-        property: `properties/${process.env.GA4_PROPERTY_ID}`,
-        dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
+        property,
+        dateRanges,
         dimensions: [{ name: "pagePath" }, { name: "eventName" }],
         metrics: [{ name: "eventCount" }],
         dimensionFilter: {
           andGroup: {
             expressions: [
-              {
-                filter: {
-                  fieldName: "pagePath",
-                  stringFilter: { matchType: "EXACT", value: pagePath },
-                },
-              },
-              {
-                filter: {
-                  fieldName: "eventName",
-                  stringFilter: { matchType: "EXACT", value: "formSubmit" },
-                },
-              },
-            ],
-          },
-        },
-      }),
-      // Shared events
-      analyticsDataClient.runReport({
-        property: `properties/${process.env.GA4_PROPERTY_ID}`,
-        dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
-        dimensions: [{ name: "pagePath" }, { name: "eventName" }],
-        metrics: [{ name: "eventCount" }],
-        dimensionFilter: {
-          andGroup: {
-            expressions: [
-              {
-                filter: {
-                  fieldName: "pagePath",
-                  stringFilter: { matchType: "EXACT", value: pagePath },
-                },
-              },
-              {
-                filter: {
-                  fieldName: "eventName",
-                  stringFilter: { matchType: "EXACT", value: "shared" },
-                },
-              },
-            ],
-          },
-        },
-      }),
-      // Campaign clicks
-      analyticsDataClient.runReport({
-        property: `properties/${process.env.GA4_PROPERTY_ID}`,
-        dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
-        dimensions: [{ name: "pagePath" }, { name: "eventName" }],
-        metrics: [{ name: "eventCount" }],
-        dimensionFilter: {
-          andGroup: {
-            expressions: [
-              {
-                filter: {
-                  fieldName: "pagePath",
-                  stringFilter: { matchType: "EXACT", value: pagePath },
-                },
-              },
-              {
-                filter: {
-                  fieldName: "eventName",
-                  stringFilter: {
-                    matchType: "EXACT",
-                    value: "specialOfferClicked",
-                  },
-                },
-              },
+              EXACT("pagePath", pagePath),
+              IN_LIST("eventName", ["form_submit", "formSubmit"]), // tolerant
             ],
           },
         },
       }),
 
-      // NEW: Uniform catch-all (personalization + experiments) in one go
+      // Shared events (name appears correct in GA)
+      analyticsDataClient.runReport({
+        property,
+        dateRanges,
+        dimensions: [{ name: "pagePath" }, { name: "eventName" }],
+        metrics: [{ name: "eventCount" }],
+        dimensionFilter: {
+          andGroup: {
+            expressions: [
+              EXACT("pagePath", pagePath),
+              EXACT("eventName", "shared"),
+            ],
+          },
+        },
+      }),
+
+      // Campaign clicks (name appears correct in GA)
+      analyticsDataClient.runReport({
+        property,
+        dateRanges,
+        dimensions: [{ name: "pagePath" }, { name: "eventName" }],
+        metrics: [{ name: "eventCount" }],
+        dimensionFilter: {
+          andGroup: {
+            expressions: [
+              EXACT("pagePath", pagePath),
+              EXACT("eventName", "specialOfferClicked"),
+            ],
+          },
+        },
+      }),
+
+      // Uniform: prefer categorization (more robust than name prefix)
       analyticsDataClient.runReport({
         property: `properties/${process.env.GA4_PROPERTY_ID}`,
         dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
-        // Include custom dimensions you registered in GA4 Admin:
-        dimensions: [
-          { name: "pagePath" },
-          { name: "eventName" },
-          { name: "customEvent:uniform_is_control_group" }, // event param
-          { name: "customEvent:event_category" }, // optional, if you registered it
-        ],
+        dimensions: [{ name: "pagePath" }, { name: "eventName" }],
         metrics: [{ name: "eventCount" }],
         dimensionFilter: {
           andGroup: {
@@ -257,41 +230,47 @@ export async function getPageCustomEvents(pagePath: string) {
                   stringFilter: { matchType: "EXACT", value: pagePath },
                 },
               },
-              // Keep either the name prefix filter...
               {
                 filter: {
                   fieldName: "eventName",
                   stringFilter: { matchType: "BEGINS_WITH", value: "uniform_" },
                 },
               },
-              // ...or, if you prefer categorization, use this instead:
-              // { filter: { fieldName: 'customEvent:event_category', stringFilter: { matchType: 'REGEXP', value: '(?i)Uniform (Personalization|AB Testing)' } } },
             ],
           },
         },
       }),
     ];
 
-    const [formResponse, sharedResponse, campaignResponse, uniformResponse] =
-      await Promise.all(eventPromises);
+    const [formResp, sharedResp, campaignResp, uniformResp] = await Promise.all(
+      eventPromises
+    );
+
+    const toInt = (v?: string) => parseInt(v || "0", 10);
+    const firstCount = (r: any) =>
+      toInt(r[0].rows?.[0]?.metricValues?.[0]?.value);
+
+    // Sum Uniform rows (there can be multiple event names)
+    let uniformTotal = 0,
+      uniformControl = 0,
+      uniformPersonalized = 0;
+    for (const row of uniformResp[0].rows || []) {
+      const n = toInt(row.metricValues?.[0]?.value);
+      const isCtrl = (row.dimensionValues?.[2]?.value || "").toLowerCase();
+      uniformTotal += n;
+      if (isCtrl === "true" || isCtrl === "1") uniformControl += n;
+      else uniformPersonalized += n;
+    }
 
     return {
-      formSubmissions: parseInt(
-        formResponse[0].rows?.[0]?.metricValues?.[0]?.value || "0",
-        10
-      ),
-      shares: parseInt(
-        sharedResponse[0].rows?.[0]?.metricValues?.[0]?.value || "0",
-        10
-      ),
-      campaignClicks: parseInt(
-        campaignResponse[0].rows?.[0]?.metricValues?.[0]?.value || "0",
-        10
-      ),
-      personalizations: parseInt(
-        uniformResponse[0].rows?.[0]?.metricValues?.[0]?.value || "0",
-        10
-      ),
+      formSubmissions: firstCount(formResp),
+      shares: firstCount(sharedResp),
+      campaignClicks: firstCount(campaignResp),
+      personalizations: uniformTotal,
+      uniformBreakdown: {
+        control: uniformControl,
+        personalized: uniformPersonalized,
+      },
     };
   } catch (error) {
     console.error("GA4 Custom Events Error:", error);
@@ -299,6 +278,8 @@ export async function getPageCustomEvents(pagePath: string) {
       formSubmissions: 0,
       shares: 0,
       campaignClicks: 0,
+      personalizations: 0,
+      uniformBreakdown: { control: 0, personalized: 0 },
     };
   }
 }

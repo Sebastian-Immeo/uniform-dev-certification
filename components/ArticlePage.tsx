@@ -29,7 +29,6 @@ const ArticlePage = (props: ArticlePageProps) => {
   }, []);
 
   const handleShare = () => {
-    console.log("Share button clicked");
     trackEvent("shared", {
       articleTitle: props.title,
       articleId: props.id,

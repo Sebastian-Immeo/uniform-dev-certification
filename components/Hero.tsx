@@ -52,7 +52,6 @@ const Hero = (props: HeroProps) => {
       window.dataLayer = window.dataLayer || [];
       if (!clickedRef.current) {
         clickedRef.current = true;
-        console.log("Triggering special offer click event");
         window.dataLayer.push({
           event: "specialOfferClicked",
           campaignName: props.campaignName ?? "",
