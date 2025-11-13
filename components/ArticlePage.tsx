@@ -3,6 +3,7 @@ import {
   ComponentProps,
   registerUniformComponent,
   UniformRichText,
+  UniformSlot,
   UniformText,
 } from "@uniformdev/canvas-react";
 import Image from "next/image";
@@ -18,7 +19,7 @@ type ArticlePageProps = ComponentProps<{
 
 const ArticlePage = (props: ArticlePageProps) => {
   const path = useRouter().asPath.split("?")[0];
-  console.log("ArticlePage path:", path);
+
   useEffect(() => {
     trackEvent("articlePageView", {
       articleTitle: props.title,
@@ -28,11 +29,11 @@ const ArticlePage = (props: ArticlePageProps) => {
   }, []);
 
   const handleShare = () => {
-    console.log("Share button clicked"); // Debug log
+    console.log("Share button clicked");
     trackEvent("shared", {
       articleTitle: props.title,
       articleId: props.id,
-      articlePath: path, // This is perfect - keep using path
+      articlePath: path,
     });
   };
 
@@ -41,6 +42,7 @@ const ArticlePage = (props: ArticlePageProps) => {
       id={props.id}
       className="min-h-[70dvh] max-w-[1200px] mx-auto py-12 px-6"
     >
+      <UniformSlot name="contact" />
       <div className="relative z-10 mb-2">
         <Image
           src={props.image || "/placeholder.svg"}
@@ -97,6 +99,8 @@ const ArticlePage = (props: ArticlePageProps) => {
         placeholder="Hero description goes here"
         data-test-id="hero-description"
       />
+
+      <UniformSlot name="contact" />
     </section>
   );
 };

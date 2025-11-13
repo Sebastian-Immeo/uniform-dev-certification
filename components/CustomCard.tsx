@@ -57,7 +57,8 @@ export default function CustomCard(
           />
         </p>
 
-        <button
+        {/* Maybe for personalization */}
+        {/* <button
           className="mt-auto ml-auto inline-block bg-white text-black text-base font-medium
                  px-6 py-2 rounded-md shadow transition-all duration-200
                  hover:bg-gray-100 hover:shadow-md hover:-translate-y-1 pointer-events-none"
@@ -67,7 +68,7 @@ export default function CustomCard(
             placeholder="Type Button Text Here"
             parameterId="buttonText"
           />
-        </button>
+        </button> */}
       </div>
     </a>
   );

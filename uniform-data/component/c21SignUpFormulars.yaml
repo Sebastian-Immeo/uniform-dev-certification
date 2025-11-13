@@ -1,5 +1,5 @@
-# yaml-language-server: $schema=https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
-$schema: https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+# yaml-language-server: $schema=https://uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://uniform.app/schemas/json-schema/component-definition/v1.json
 id: c21SignUpFormulars
 name: C.21 Sign Up Formulars
 icon: profile
@@ -171,7 +171,7 @@ parameters:
     name: Country Options
     type: $block
     typeConfig:
-      required: true
+      required: false
       allowedTypes:
         - option
   - id: companyLabel
@@ -198,7 +198,6 @@ parameters:
     typeConfig:
       required: false
     localizable: true
-categoryId: fd9a1fb0-a8fc-4ea4-9bde-1e1e49bd8bf6
 useTeamPermissions: true
 slots:
   - id: prependedFields
@@ -233,8 +232,8 @@ slugSettings:
 titleParameter: buttonText
 thumbnailParameter: headshot
 canBeComposition: false
-created: '2025-09-30T12:04:03.837538+00:00'
-updated: '2025-10-08T12:18:37.719435+00:00'
+created: '2025-10-29T09:09:35.369079+00:00'
+updated: '2025-10-29T13:18:55.336345+00:00'
 variants:
   - id: primary
     name: Primary

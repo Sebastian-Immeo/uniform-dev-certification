@@ -1,5 +1,5 @@
-# yaml-language-server: $schema=https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
-$schema: https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+# yaml-language-server: $schema=https://uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://uniform.app/schemas/json-schema/component-definition/v1.json
 id: dynamicForm
 name: C.21B Form Section
 icon: profile
@@ -228,7 +228,6 @@ parameters:
     typeConfig:
       required: false
     localizable: true
-categoryId: fd9a1fb0-a8fc-4ea4-9bde-1e1e49bd8bf6
 useTeamPermissions: true
 slots:
   - id: prependedFields
@@ -262,5 +261,5 @@ slugSettings:
   regularExpressionMessage: ''
 thumbnailParameter: headshot
 canBeComposition: false
-created: '2025-09-18T13:33:22.985908+00:00'
-updated: '2025-10-08T12:20:30.104472+00:00'
+created: '2025-10-29T09:09:35.098839+00:00'
+updated: '2025-10-29T09:28:21.036903+00:00'

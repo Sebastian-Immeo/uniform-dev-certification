@@ -1,8 +1,6 @@
-'use client';
+"use client";
 
-import { Icon } from '@/components/atoms/A.9 Icon';
-import { useScrollLock } from '@/hooks/useScrollLock';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 export interface OverlayProps {
   isOpen: boolean;
@@ -17,15 +15,13 @@ export interface OverlayProps {
 export function Overlay({
   isOpen,
   onClose,
-  closeAriaLabel = 'Close overlay',
+  closeAriaLabel = "Close overlay",
   header,
   children,
-  className = '',
-  maxWidth = 'max-w-[952px]',
+  className = "",
+  maxWidth = "max-w-[952px]",
 }: OverlayProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useScrollLock(isOpen);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -39,19 +35,19 @@ export function Overlay({
   }, [isOpen]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       onClose();
     }
   };
 
   const reducedMotionActive =
-    typeof window !== 'undefined'
-      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
       : false;
 
   const overlayAnimation = reducedMotionActive
-    ? ''
-    : 'animate-[overlayEnter_0.3s_ease-out_forwards]';
+    ? ""
+    : "animate-[overlayEnter_0.3s_ease-out_forwards]";
 
   return (
     <dialog
@@ -71,7 +67,22 @@ export function Overlay({
               className="cursor-pointer self-baseline ml-auto"
               aria-label={closeAriaLabel}
             >
-              <Icon icon="cross-lg" className="w-ft-6 h-ft-6 fill-white" />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-ft-6 h-ft-6"
+              >
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           </div>
 

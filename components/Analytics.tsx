@@ -41,8 +41,6 @@ const Analytics = () => {
         const result = await response.json();
 
         if (result.success) {
-          const personalizations = Object.keys(context.quirks || {}).length;
-
           setAnalytics((prev) => ({
             pageViews: {
               ...result.data.pageViews,
@@ -54,7 +52,7 @@ const Analytics = () => {
             formSubmissions: result.data.formSubmissions || 0,
             shares: result.data.shares || 0,
             campaignClicks: result.data.campaignClicks || 0,
-            personalizations,
+            personalizations: result.data.personalizations || 0,
           }));
           setLastUpdate(new Date());
         }
@@ -67,15 +65,13 @@ const Analytics = () => {
     [path, context.quirks]
   );
 
-  // Listen for custom navigation events
   useEffect(() => {
     const handlePageView = () => {
-      fetchAnalytics(true); // Increment page view for real-time feel
+      fetchAnalytics(true);
     };
 
     const handleCustomEvent = (event: CustomEvent) => {
-      // Refresh analytics when custom events fire
-      setTimeout(() => fetchAnalytics(), 1000); // Small delay for GA4 processing
+      setTimeout(() => fetchAnalytics(), 1000);
     };
 
     // Listen for router events
@@ -84,14 +80,14 @@ const Analytics = () => {
     // Listen for custom tracking events
     window.addEventListener("gtm:pageView", handlePageView);
     window.addEventListener("gtm:formSubmit", handleCustomEvent);
-    window.addEventListener("gtm:shared", handleCustomEvent);
+    window.addEventListener("gtm:shared", handleCustomEvent); // Already listening for shares
     window.addEventListener("gtm:specialOfferClicked", handleCustomEvent);
 
     return () => {
       router.events.off("routeChangeComplete", handlePageView);
       window.removeEventListener("gtm:pageView", handlePageView);
       window.removeEventListener("gtm:formSubmit", handleCustomEvent);
-      window.removeEventListener("gtm:shared", handleCustomEvent);
+      window.removeEventListener("gtm:shared", handleCustomEvent); // Already cleaning up
       window.removeEventListener("gtm:specialOfferClicked", handleCustomEvent);
     };
   }, [router.events, fetchAnalytics]);
@@ -103,13 +99,13 @@ const Analytics = () => {
 
   const formatNumber = (num: number) => {
     if (num === 0 && isLoading) return "...";
-    if (num === 0) return "N/A";
+    if (num === 0) return 0;
     return num.toLocaleString();
   };
 
   const formatTime = (minutes: number) => {
     if (minutes === 0 && isLoading) return "...";
-    if (minutes === 0) return "N/A";
+    if (minutes === 0) return 0;
     return `${minutes}m`;
   };
 
@@ -120,14 +116,9 @@ const Analytics = () => {
           <h3 className="text-sm font-semibold text-rhodium tracking-wide">
             Page Analytics
           </h3>
-          {lastUpdate && (
-            <span className="text-xs text-rhodium/60">
-              Updated: {lastUpdate.toLocaleTimeString()}
-            </span>
-          )}
         </div>
 
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-6 gap-6 py-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-cyan-400">
               {formatNumber(analytics.pageViews.combined)}
@@ -137,7 +128,7 @@ const Analytics = () => {
             </div>
             <div className="text-xs text-rhodium/60 mt-1">
               {analytics.pageViews.recent > 0 &&
-                `${analytics.pageViews.recent} (7d)`}
+                `${analytics.pageViews.recent} (recent 7d)`}
             </div>
           </div>
 
@@ -151,6 +142,15 @@ const Analytics = () => {
           </div>
 
           <div className="text-center">
+            <div className="text-2xl font-bold text-rose-400">
+              {formatNumber(analytics.shares)}
+            </div>
+            <div className="text-xs text-rhodium uppercase tracking-wide">
+              Times Shared
+            </div>
+          </div>
+
+          <div className="text-center">
             <div className="text-2xl font-bold text-amber-400">
               {formatNumber(analytics.formSubmissions)}
             </div>
@@ -160,11 +160,11 @@ const Analytics = () => {
           </div>
 
           <div className="text-center">
-            <div className="text-2xl font-bold text-rose-400">
-              {formatNumber(analytics.shares)}
+            <div className="text-2xl font-bold text-orange-400">
+              {formatNumber(analytics.personalizations)}
             </div>
             <div className="text-xs text-rhodium uppercase tracking-wide">
-              Shared
+              Personalization Events
             </div>
           </div>
 
@@ -173,15 +173,19 @@ const Analytics = () => {
               {formatNumber(analytics.campaignClicks)}
             </div>
             <div className="text-xs text-rhodium uppercase tracking-wide">
-              Campaigns
+              Campaigns Clicked
             </div>
           </div>
         </div>
 
         <div className="mt-4 pt-3 border-t border-rhodium/20">
           <div className="text-xs text-rhodium/60 flex justify-between">
-            <span>Path: {path}</span>
-            <span>Personalizations: {analytics.personalizations}</span>
+            <span> PATH: {path}</span>
+            {lastUpdate && (
+              <span className="text-xs text-rhodium/60">
+                Updated: {lastUpdate.toLocaleTimeString()}
+              </span>
+            )}
           </div>
         </div>
       </div>

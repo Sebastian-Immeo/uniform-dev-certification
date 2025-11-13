@@ -24,9 +24,12 @@ const Navigation: React.FC<NavigationProps> = (props) => {
   const activeLink =
     navLinks.find((link: NavLink) => link.url === pathname)?.url || null;
 
-  // Only include links that are not hidden from navigation
   const filteredLinks = navLinks.filter(
     (link: NavLink) => !link.isHiddenFromNavigation
+  );
+
+  const filteredByName = filteredLinks.filter(
+    (link: NavLink) => link.title !== "Personalization"
   );
 
   return (
@@ -35,7 +38,7 @@ const Navigation: React.FC<NavigationProps> = (props) => {
         <h2 className="text-white text-xl font-bold">ARCTIC INSIGHTS</h2>
       </Link>
       <nav>
-        {filteredLinks.map((e: NavLink, i: number) => {
+        {filteredByName.map((e: NavLink, i: number) => {
           return (
             <span
               className={`p-6 text-lg text-white hover:underline hover:text-gray-300 underline-offset-2 decoration-2 ${

@@ -64,19 +64,19 @@ const Hero = (props: HeroProps) => {
     }
   };
   return (
-    <div className={`relative max-w-4xl mx-auto ${isSpecial ? "" : ""}`}>
+    <div className={`rich-text relative ${isSpecial ? "" : ""}`}>
       <div className="relative z-20">
         <UniformText
           parameterId="title"
           as="h1"
-          className="text-4xl font-extrabold text-gray-900"
+          className=""
           data-test-id="hero-title"
           placeholder="Hero title goes here"
         />
 
         <UniformRichText
           parameterId="description"
-          className="mt-6 text-lg leading-relaxed text-gray-700"
+          className="mt-6 text-lg leading-relaxed text-carbon"
           placeholder="Hero description goes here"
           data-test-id="hero-description"
         />

@@ -96,8 +96,16 @@ parameters:
 categoryId: 54138588-cec1-4b24-93fe-87d1f6b7bfa4
 description: Pages for blogs and articles
 useTeamPermissions: true
-slots: []
+slots:
+  - id: contact
+    name: contact
+    maxComponents: 1
+    allowedComponents:
+      - c21SignUpFormulars
+    allowAllComponents: false
+    inheritAllowedComponents: false
+    patternsInAllowedComponents: false
 titleParameter: title
 canBeComposition: true
 created: '2025-05-30T18:21:52.408005+00:00'
-updated: '2025-06-25T08:55:46.600985+00:00'
+updated: '2025-10-29T13:19:40.545178+00:00'

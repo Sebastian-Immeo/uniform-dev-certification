@@ -1,7 +1,7 @@
 import { registerUniformComponent } from "@uniformdev/canvas-react";
-import { ContactOverlay } from "./Form Popover/C.20 ContactFloating";
-import { PopoverForm } from "./Form Popover/C.21 PopoverForm";
-import InlineFormSection from "./Form Section/C.21B FormSection";
+import { ContactOverlay } from "./Forms/Form Popover/C.20 ContactFloating";
+import { PopoverForm } from "./Forms/Form Popover/C.21 PopoverForm";
+import InlineFormSection from "./Forms/Form Section/C.21B FormSection";
 
 registerUniformComponent({
   type: "employeeDataContainer",
@@ -10,7 +10,7 @@ registerUniformComponent({
 
 registerUniformComponent({
   type: "c21SignUpFormulars",
-  component: PopoverForm,
+  component: ContactOverlay,
 });
 
 registerUniformComponent({

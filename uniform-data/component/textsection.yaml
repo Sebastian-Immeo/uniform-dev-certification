@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+id: textsection
+name: Text Section
+icon: image-text
+parameters:
+  - id: header
+    name: Header
+    type: text
+    typeConfig: null
+    localizable: true
+  - id: description
+    name: Description
+    type: richText
+    typeConfig:
+      elements:
+        builtIn:
+          - h1
+          - h2
+          - h3
+          - h4
+          - h5
+          - h6
+          - unorderedList
+          - orderedList
+          - link
+          - quote
+          - code
+          - table
+          - asset
+          - variable
+      required: false
+      formatting:
+        builtIn:
+          - bold
+          - italic
+          - underline
+          - strikethrough
+          - code
+          - superscript
+          - subscript
+      elementsConfig:
+        asset:
+          allowedTypes:
+            - image
+    localizable: true
+  - id: width
+    name: width
+    type: select
+    helpText: Controls the width of the element.
+    typeConfig:
+      options:
+        - text: Full
+          value: full
+        - text: Half
+          value: half
+categoryId: 26961017-5174-4b69-8864-c06156ebee53
+useTeamPermissions: true
+slots: []
+titleParameter: header
+canBeComposition: false
+created: '2025-09-25T08:08:34.612884+00:00'
+updated: '2025-09-30T19:14:40.647284+00:00'
+variants:
+  - id: dark
+    name: Dark

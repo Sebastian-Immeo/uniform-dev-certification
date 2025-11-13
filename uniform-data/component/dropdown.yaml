@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+$schema: https://eu.uniform.app/schemas/json-schema/component-definition/v1.json
+id: dropdown
+name: Dropdown
+icon: arrow-down-r
+parameters:
+  - id: label
+    name: Label
+    type: text
+    typeConfig:
+      required: true
+    localizable: true
+  - id: name
+    name: Salesforce Form Field Name
+    type: text
+    helpText: >-
+      This has to match the name of the corresponding form field name in
+      Salesforce. Be sure to check this is the case.
+    typeConfig:
+      required: true
+  - id: width
+    name: Width
+    type: select
+    helpText: Determines the width of the component.
+    typeConfig:
+      options:
+        - text: Full
+          value: full
+        - text: Half
+          value: half
+  - id: options
+    name: Options
+    type: $block
+    helpText: Insert options that users can chose between in the dropdown
+    typeConfig:
+      min: 2
+      allowedTypes:
+        - option
+  - id: required
+    name: Required
+    type: checkbox
+    helpText: Makes field required. Users cannot send the form before it is filled in.
+    typeConfig: null
+categoryId: 26961017-5174-4b69-8864-c06156ebee53
+useTeamPermissions: true
+slots: []
+titleParameter: label
+canBeComposition: false
+created: '2025-09-25T07:56:36.297241+00:00'
+updated: '2025-09-26T08:27:21.213062+00:00'
+variants:
+  - id: dark
+    name: Dark

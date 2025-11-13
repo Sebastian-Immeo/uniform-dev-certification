@@ -44,6 +44,16 @@ composition:
           value: >-
             ${#jptr:/Blog by slug Content/result/author/_ref}${#jptr:/Single
             Author Content/result/name}
+      localesConditions:
+        '':
+          - id: 0
+            when:
+              clauses:
+                - op: has
+                  rule: $dt
+                  value: post
+                  source: ${#jptr:/Blog by slug Content/result/_type}
+            value: ${#jptr:/Single Author Content/result/name}
     categories:
       type: text
       value: ${#jptr:/Blog slug Content/entry/fields/tags/value/0/entry/_name}
@@ -255,6 +265,11 @@ composition:
                   textFormat: 0
               direction: ltr
           id: 0
+  slots:
+    contact:
+      - _id: 7fbf7c9d-a25c-4363-b69a-7de6a72041d2
+        type: c21SignUpFormulars
+        _pattern: a0f72b81-4e50-4063-8809-90c0f0b62c53
   _dataResources:
     Blog slug Content:
       type: blog-slug
@@ -268,6 +283,40 @@ composition:
       type: singleDocument
       variables:
         id: 77655c90-33e8-4c0f-8a21-ed7a80a1b226
+  _overrides:
+    7fbf7c9d-a25c-4363-b69a-7de6a72041d2:
+      parameters:
+        buttonText:
+          type: text
+          value: Send
+        formTermsText:
+          type: richText
+          value:
+            root:
+              type: root
+              format: ''
+              indent: 0
+              version: 1
+              children:
+                - type: paragraph
+                  format: ''
+                  indent: 0
+                  version: 1
+                  children:
+                    - mode: normal
+                      text: Specific text.
+                      type: text
+                      style: ''
+                      detail: 0
+                      format: 0
+                      version: 1
+                  direction: ltr
+                  textStyle: ''
+                  textFormat: 0
+              direction: ltr
+        submitButtonText:
+          type: text
+          value: Send
 created: '2025-06-02T10:19:26.14535+00:00'
-modified: '2025-06-25T09:53:43.665743+00:00'
+modified: '2025-10-29T13:24:17.334818+00:00'
 pattern: false
