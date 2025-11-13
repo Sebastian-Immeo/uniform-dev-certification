@@ -1,6 +1,6 @@
-'use client';
-import React from 'react';
-import { ComponentProps } from '@uniformdev/canvas-next-rsc/component';
+"use client";
+import { ComponentProps } from "@uniformdev/canvas-react";
+import React from "react";
 
 interface TextBoxProps {
   id: string;
@@ -13,7 +13,7 @@ interface TextBoxProps {
   name: string;
   required?: boolean;
   defaultValue?: string;
-  width?: 'full' | 'half';
+  width?: "full" | "half";
 }
 
 export const TextBox = ({
@@ -27,25 +27,25 @@ export const TextBox = ({
   required = false,
   resizeAble = false,
   defaultValue,
-  width = 'full',
+  width = "full",
   component,
 }: ComponentProps<TextBoxProps>) => {
-  const isDark = component?.variant === 'dark' || isDarkMode;
-  const labelColor = isDark ? 'text-platinum' : 'text-carbon';
+  const isDark = component?.variant === "dark" || isDarkMode;
+  const labelColor = isDark ? "text-platinum" : "text-carbon";
 
-  const baseBg = isDark ? 'bg-overlay-platinum-25' : 'bg-rhodium';
+  const baseBg = isDark ? "bg-overlay-platinum-25" : "bg-rhodium";
 
   const hoverBorder = isDark
-    ? 'hover:border-rhodium'
-    : 'hover:border-magnesium';
+    ? "hover:border-rhodium"
+    : "hover:border-magnesium";
 
-  const textColor = isDark ? 'text-platinum' : 'text-carbon';
+  const textColor = isDark ? "text-platinum" : "text-carbon";
 
   const placeholderColor = isDark
-    ? 'placeholder-overlay-platinum-70 hover:placeholder-platinum'
-    : 'placeholder-color-titanium hover:placeholder-carbon';
+    ? "placeholder-overlay-platinum-70 hover:placeholder-platinum"
+    : "placeholder-color-titanium hover:placeholder-carbon";
 
-  const focusOutline = isDark ? 'focus-outline-white' : 'focus-outline-blue';
+  const focusOutline = isDark ? "focus-outline-white" : "focus-outline-blue";
 
   return (
     <div className={`w-full flex flex-col items-start gap-ft-3 ${width}`}>
@@ -66,7 +66,7 @@ export const TextBox = ({
           rounded-[3px] backdrop-blur-[20px]
           transition-all border border-transparent
           ${focusOutline}
-          ${resizeAble ? 'resize' : 'resize-none'}
+          ${resizeAble ? "resize" : "resize-none"}
         `}
       />
     </div>
