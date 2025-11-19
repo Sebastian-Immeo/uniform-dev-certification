@@ -8,6 +8,7 @@ import {
 } from "@uniformdev/canvas-react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { title } from "process";
 import { useEffect } from "react";
 
 type ArticlePageProps = ComponentProps<{
@@ -18,7 +19,8 @@ type ArticlePageProps = ComponentProps<{
 }>;
 
 const ArticlePage = (props: ArticlePageProps) => {
-  const path = useRouter().asPath.split("?")[0];
+  const router = useRouter();
+  const path = router.asPath.split("?")[0];
 
   useEffect(() => {
     trackEvent("articlePageView", {
@@ -26,6 +28,15 @@ const ArticlePage = (props: ArticlePageProps) => {
       articleId: props.id,
       articleAuthor: props.authorRef,
     });
+
+    if (router.query.campaign === "true") {
+      window.dataLayer.push({
+        event: "specialOfferClicked",
+        campaignName: props.title,
+        offerType: "freeTrial",
+        timestamp: Date.now(),
+      });
+    }
   }, []);
 
   const handleShare = () => {

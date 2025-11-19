@@ -7,7 +7,7 @@ import {
   UniformText,
 } from "@uniformdev/canvas-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useRef } from "react";
 
 // Extend Window interface to include dataLayer
@@ -31,6 +31,7 @@ type HeroImage = {
 type HeroProps = ComponentProps<{
   title: string;
   description?: RichTextParamValue;
+  articleSlug?: string;
   image?: HeroImage[];
   variant: "default" | "special";
   secondaryImage?: HeroImage[];
@@ -38,15 +39,16 @@ type HeroProps = ComponentProps<{
 }>;
 
 const Hero = (props: HeroProps) => {
-  const router = useRouter();
   const isSpecial = props.component.variant === "special";
   const primaryUrl = props.image?.[0]?.fields.url.value;
   const secondaryUrl = props.secondaryImage;
   const clickedRef = useRef(false);
+  const redirectUrl = !props?.articleSlug
+    ? "/"
+    : `/articles/${props?.articleSlug}`;
 
   const triggerSpecial = async (e?: React.MouseEvent<HTMLAnchorElement>) => {
     if (!isSpecial) return;
-    e?.preventDefault();
 
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
@@ -58,7 +60,6 @@ const Hero = (props: HeroProps) => {
           offerType: "bundleDeal",
           timestamp: Date.now(),
         });
-        requestAnimationFrame(() => router.push("/"));
       }
     }
   };
@@ -81,11 +82,13 @@ const Hero = (props: HeroProps) => {
         />
       </div>
 
-      {isSpecial && primaryUrl && secondaryUrl && (
-        <a
-          href="/"
+      {isSpecial && (
+        <Link
+          href={redirectUrl}
           onClick={triggerSpecial}
-          className="group relative inset-0 aspect-video z-0 grid grid-cols-2 mt-24"
+          className={`group relative inset-0 aspect-video flex z-0 w-full mt-24 ${
+            isSpecial ? "max-w-[740px] mx-auto" : ""
+          }`}
         >
           <span className="absolute inset-0 w-56 h-48 z-56 -translate-y-16 left-1/2 -translate-x-1/2 group-hover:scale-110 ease-in-out duration-300">
             <svg
@@ -153,20 +156,24 @@ const Hero = (props: HeroProps) => {
               />
             </svg>
           </span>
-          <div
-            className="bg-cover bg-center opacity-80 rounded-l-lg"
-            style={{ backgroundImage: `url(${primaryUrl})` }}
-          />
-          <div
-            className="bg-cover bg-center opacity-80 rounded-r-lg"
-            style={{ backgroundImage: `url(${secondaryUrl})` }}
-          />
+          {primaryUrl && (
+            <div
+              className="bg-cover bg-center opacity-80 rounded-l-lg w-full"
+              style={{ backgroundImage: `url(${primaryUrl})` }}
+            />
+          )}
+          {secondaryUrl && (
+            <div
+              className="bg-cover bg-center opacity-80 rounded-r-lg w-full"
+              style={{ backgroundImage: `url(${secondaryUrl})` }}
+            />
+          )}
           <div className="absolute inset-0 z-10 bg-red-400 opacity-90 group-hover:opacity-0 ease-in-out duration-300 rounded-lg" />
           <div className="absolute group-hover:opacity-0 ease-in-out duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform z-20 text-white inline-block px-2 py-8 uppercase bg-[#e24e3d] h-full w-[46px] border-x-2 border-white"></div>
           <div className="absolute group-hover:opacity-0 ease-in-out duration-300 text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform z-20 text-white inline-block px-8 py-2 text-xl font-semiBold uppercase bg-[#e24e3d] w-full border-y-2 border-white">
-            Special Bundle Deal
+            {secondaryUrl && primaryUrl ? "Bundle Deal" : "Special Deal"}
           </div>
-        </a>
+        </Link>
       )}
 
       {!isSpecial && primaryUrl && (
