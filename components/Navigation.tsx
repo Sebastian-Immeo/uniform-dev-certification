@@ -33,7 +33,7 @@ const Navigation: React.FC<NavigationProps> = (props) => {
   );
 
   return (
-    <div className="flex justify-between items-center bg-carbon px-8 py-4">
+    <div className="flex justify-between items-center bg-carbon px-ft-9 py-ft-7">
       <Link href="/">
         <h2 className="text-white text-xl font-bold">ARCTIC INSIGHTS</h2>
       </Link>
@@ -41,7 +41,7 @@ const Navigation: React.FC<NavigationProps> = (props) => {
         {filteredByName.map((e: NavLink, i: number) => {
           return (
             <span
-              className={`p-6 text-lg text-white hover:underline hover:text-gray-300 underline-offset-2 decoration-2 ${
+              className={`p-6 text-lg leading-relaxed font-semibold text-white hover:underline hover:text-gray-300 underline-offset-2 decoration-2 ${
                 activeLink === e.url ? "underline" : ""
               }`}
               key={i}

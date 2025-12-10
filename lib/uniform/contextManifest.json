@@ -46,9 +46,9 @@
           }
         },
         "testMode": {
-          "str": 50,
-          "cap": 100,
-          "dur": "p",
+          "str": 1,
+          "cap": 1,
+          "dur": "s",
           "crit": {
             "op": "&",
             "type": "G",

@@ -26,6 +26,8 @@ export interface ContactOverlayProps extends ContactFormProps {
   formSuccesMessage: string;
   formErrorMessage: string;
   defaultFormHandle?: string;
+  author: any;
+  authorName: string;
 }
 
 export function ContactOverlay({
@@ -44,6 +46,8 @@ export function ContactOverlay({
   formErrorMessage,
   formHandle,
   defaultFormHandle,
+  author,
+  authorName,
   ...contactFormProps
 }: ComponentProps<ContactOverlayProps>) {
   const isFirstRender = useRef(true);
@@ -52,6 +56,7 @@ export function ContactOverlay({
   const [formRequestStatus, setFormRequestStatus] = useState<
     { send: boolean; success: boolean } | undefined
   >();
+  const authorImage = author?.[0]?.fields?.url?.value;
 
   const handleFormSubmitState = (success: boolean) => {
     setIsOpen(false);
@@ -72,8 +77,9 @@ export function ContactOverlay({
   return (
     <>
       {formRequestStatus?.send && formRequestStatus?.success && (
-        <span> SUCCESS</span>
+        <span> SUCCESS!!!</span>
       )}
+
       <div className="fixed right-6 bottom-6 z-50">
         <button
           onClick={() => {
@@ -83,12 +89,7 @@ export function ContactOverlay({
           className="px-3 py-2 ml-auto flex items-center justify-center cursor-pointer bg-carbon hover:bg-magnesium rounded-full md:rounded-tl-medium md:rounded-tr-small md:rounded-b-small hover:bg-opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl"
           aria-label="Open contact form"
         >
-          <p
-            aria-hidden="true"
-            className="text-white text-heading-5 hidden md:block"
-          >
-            Write to author
-          </p>
+          <p className="text-white text-heading-5">Write to author</p>
         </button>
       </div>
 
@@ -96,7 +97,18 @@ export function ContactOverlay({
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         closeAriaLabel={closeAriaLabel || "Close contact form"}
-        header={<h2 className="text-heading-3">Write to author</h2>}
+        header={
+          <>
+            <Image
+              src={authorImage}
+              alt="Author headshot"
+              width={100}
+              height={100}
+              className="rounded-full object-cover w-[100px] h-[100px] mr-ft-7"
+            />
+            <h2 className="text-heading-3">Write to {authorName ?? ""}</h2>
+          </>
+        }
       >
         <ContactForm
           {...contactFormProps}
